@@ -1,0 +1,14 @@
+target/
+.project
+.classpath
+.settings/
+.DS_Store
+*~
+MANIFEST.MF
+*.log
+*.iml
+.idea/*
+deploy/
+log/
+crisis-rpc-demo/.idea/*
+crisis-rpc-demo/classes/*
