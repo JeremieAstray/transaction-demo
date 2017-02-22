@@ -28,7 +28,7 @@ public class Dao {
     }
 
     public void removeConnection() {
-        ApplicationContext.connectionPool.releaseConnection(connectionThreadLocal.get());
+        ApplicationContext.connectionPool.releaseConnection(connectionThreadLocal.get().getId());
         connectionThreadLocal.remove();
     }
 

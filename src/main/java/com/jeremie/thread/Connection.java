@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * @author guanhong 2017/2/22.
  */
-public class Connection {
+public class Connection implements PoolObject {
     private static AtomicInteger atomicInteger = new AtomicInteger(0);
     private int id;
 

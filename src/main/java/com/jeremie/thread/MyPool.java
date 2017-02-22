@@ -1,13 +1,16 @@
 package com.jeremie.thread;
 
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 /**
  * @author guanhong 2017/2/22.
  */
-public class MyPool<T> {
+public class MyPool<T extends PoolObject> {
     private LinkedList<T> poolBeanLinkedListPool = new LinkedList<>();
     private PoolBeanFactory<T> poolBeanFactory;
+    private Map<Integer, T> integerTMap = new HashMap<>();
 
     //private static long timeout = 180000;//ms
 
@@ -37,18 +40,22 @@ public class MyPool<T> {
             if (this.size < MAX_SIZE) {
                 increasePoolSize();
             } else {
-                while (this.poolBeanLinkedListPool.isEmpty()){
+                while (this.poolBeanLinkedListPool.isEmpty()) {
 
                 }
             }
         }
         //取出连接池中一个连接
-        return this.poolBeanLinkedListPool.removeFirst(); // 删除第一个连接返回
+        T result = this.poolBeanLinkedListPool.removeFirst(); // 删除第一个连接返回
+        integerTMap.putIfAbsent(result.getId(), result);
+        return result;
     }
 
     //将连接放回连接池
-    public synchronized void releaseConnection(T poolBean) {
-        this.poolBeanLinkedListPool.add(poolBean);
+    public synchronized void releaseConnection(int id) {
+        if (integerTMap.get(id) != null) {
+            this.poolBeanLinkedListPool.add(integerTMap.get(id));
+        }
     }
 
     private void increasePoolSize() {
