@@ -7,11 +7,11 @@ import java.util.concurrent.Executors;
 /**
  * @author guanhong 2017/2/22.
  */
-public class ThreadLocalTest {
+public class Test {
 
     public static void main(String[] args) throws Exception {
         ExecutorService executorService = Executors.newFixedThreadPool(40);
-        for (int i = 0; i < 40; i++) {
+        for (int i = 0; i < 80; i++) {
             executorService.execute(new FooThread());
         }
         executorService.shutdown();

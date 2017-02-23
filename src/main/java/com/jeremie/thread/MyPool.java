@@ -4,6 +4,7 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentLinkedDeque;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author guanhong 2017/2/22.
@@ -15,8 +16,8 @@ public class MyPool<T extends PoolObject> {
 
     //private static long timeout = 180000;//ms
 
-    private int size = 0;
-    private static int INITIAL_SIZE = 20;
+    private AtomicInteger size = new AtomicInteger(0);
+    private static int INITIAL_SIZE = 10;
     private static int INCREASE_SIZE = 20;
     private static int MAX_SIZE = 20;
 
@@ -26,11 +27,11 @@ public class MyPool<T extends PoolObject> {
             throw new NullPointerException("poolBeanFactory should now be null!");
         }
         this.poolBeanFactory = poolBeanFactory;
-        this.size = INITIAL_SIZE;
-        this.newPoolBeans(this.size);
+        this.newPoolBeans(INITIAL_SIZE);
     }
 
     private void newPoolBeans(int size) {
+        this.size.addAndGet(size);
         for (int i = 0; i < size; i++) {
             T connection = this.poolBeanFactory.init();
             this.poolBeanLinkedListPool.add(connection);
@@ -40,7 +41,7 @@ public class MyPool<T extends PoolObject> {
 
     public synchronized T getConnection() {
         if (this.poolBeanLinkedListPool.isEmpty()) {
-            if (this.size < MAX_SIZE) {
+            if (this.size.get() < MAX_SIZE) {
                 increasePoolSize();
             } else {
                 while (this.poolBeanLinkedListPool.isEmpty()) {
@@ -68,6 +69,7 @@ public class MyPool<T extends PoolObject> {
     }
 
     private void increasePoolSize() {
-        this.newPoolBeans(Math.min(MAX_SIZE - this.size, INCREASE_SIZE));
+        System.out.println("init size : " + Math.min(MAX_SIZE - this.size.get(), INCREASE_SIZE));
+        this.newPoolBeans(Math.min(MAX_SIZE - this.size.get(), INCREASE_SIZE));
     }
 }
