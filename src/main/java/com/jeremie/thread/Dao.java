@@ -5,21 +5,21 @@ package com.jeremie.thread;
  */
 public class Dao {
 
-    public void query(String currentThreadId) {
-        ApplicationContext.connectionThreadLocal.get().query(currentThreadId);
+    public void query() {
+        ApplicationContext.connectionThreadLocal.get().query();
     }
 
-    public void readObject(String currentThreadId) throws Exception {
-        ApplicationContext.connectionThreadLocal.get().read(currentThreadId);
+    public void readObject() throws Exception {
+        ApplicationContext.connectionThreadLocal.get().read();
         //throw new NullPointerException();
     }
 
-    public void deleteObject(String currentThreadId) {
-        ApplicationContext.connectionThreadLocal.get().delete(currentThreadId);
+    public void deleteObject() {
+        ApplicationContext.connectionThreadLocal.get().delete();
     }
 
-    public void multiQuery(String currentThreadId) {
-        ApplicationContext.connectionThreadLocal.get().query(currentThreadId);
+    public void multiQuery() {
+        ApplicationContext.connectionThreadLocal.get().query();
     }
 
 }

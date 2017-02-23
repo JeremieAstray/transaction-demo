@@ -8,21 +8,21 @@ public class Service {
     private Dao dao;
 
     public void test1() {
-        dao.query(Thread.currentThread().getName());
+        dao.query();
     }
 
     public void test2() throws Exception {
-        dao.query(Thread.currentThread().getName());
-        dao.deleteObject(Thread.currentThread().getName());
-        dao.readObject(Thread.currentThread().getName());
+        dao.query();
+        dao.deleteObject();
+        dao.readObject();
     }
 
     public void test3() {
-        dao.deleteObject(Thread.currentThread().getName());
+        dao.deleteObject();
     }
 
     public void test4() {
-        dao.multiQuery(Thread.currentThread().getName());
+        dao.multiQuery();
     }
 
     public Dao getDao() {

@@ -17,10 +17,10 @@ public class Connection implements PoolObject {
         return this.id;
     }
 
-    public void query(String threadId) {
+    public void query() {
         try {
             //模拟一下操作吧
-            System.out.println("connection id:" + this.id + " threadId : " + threadId);
+            System.out.println("connection id:" + this.id + " threadId : " + Thread.currentThread().getName());
             System.out.println("2秒");
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -28,10 +28,10 @@ public class Connection implements PoolObject {
         }
     }
 
-    public void read(String threadId) {
+    public void read() {
         try {
             //模拟一下操作吧
-            System.out.println("connection id:" + this.id + " threadId : " + threadId);
+            System.out.println("connection id:" + this.id + " threadId : " + Thread.currentThread().getName());
             System.out.println("500毫秒");
             Thread.sleep(500);
         } catch (InterruptedException e) {
@@ -39,10 +39,10 @@ public class Connection implements PoolObject {
         }
     }
 
-    public void delete(String threadId) {
+    public void delete() {
         try {
             //模拟一下操作吧
-            System.out.println("connection id:" + this.id + " threadId : " + threadId);
+            System.out.println("connection id:" + this.id + " threadId : " + Thread.currentThread().getName());
             System.out.println("20毫秒");
             Thread.sleep(20);
         } catch (InterruptedException e) {
