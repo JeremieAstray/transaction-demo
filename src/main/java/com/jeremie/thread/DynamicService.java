@@ -24,13 +24,13 @@ public class DynamicService implements MethodInterceptor {
 
     private void after() {
         this.service.getDao().getCurrentConnection().commit();
-        this.service.getDao().removeConnection();
+        this.service.getDao().releaseConnection();
     }
 
     private void exception(Exception e) throws Exception {
         e.printStackTrace();
         this.service.getDao().getCurrentConnection().rollBack();
-        this.service.getDao().removeConnection();
+        this.service.getDao().releaseConnection();
     }
 
     @Override

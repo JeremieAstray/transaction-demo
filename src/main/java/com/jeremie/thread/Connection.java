@@ -25,7 +25,7 @@ public class Connection implements PoolObject {
         this.id = id;
     }
 
-    public void doSomething(String threadId) {
+    public void query(String threadId) {
         try {
             //模拟一下操作吧
             System.out.println("connection id:" + this.id + " threadId : " + threadId);
@@ -36,7 +36,7 @@ public class Connection implements PoolObject {
         }
     }
 
-    public void doSomething2(String threadId) {
+    public void read(String threadId) {
         try {
             //模拟一下操作吧
             System.out.println("connection id:" + this.id + " threadId : " + threadId);
@@ -47,7 +47,7 @@ public class Connection implements PoolObject {
         }
     }
 
-    public void doSomething3(String threadId) {
+    public void delete(String threadId) {
         try {
             //模拟一下操作吧
             System.out.println("connection id:" + this.id + " threadId : " + threadId);

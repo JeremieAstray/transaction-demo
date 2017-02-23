@@ -1,14 +1,15 @@
 package com.jeremie.thread;
 
+import java.util.Deque;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
+import java.util.concurrent.ConcurrentLinkedDeque;
 
 /**
  * @author guanhong 2017/2/22.
  */
 public class MyPool<T extends PoolObject> {
-    private LinkedList<T> poolBeanLinkedListPool = new LinkedList<>();
+    private Deque<T> poolBeanLinkedListPool = new ConcurrentLinkedDeque<>();
     private PoolBeanFactory<T> poolBeanFactory;
     private Map<Integer, T> integerTMap = new HashMap<>();
 
@@ -31,7 +32,9 @@ public class MyPool<T extends PoolObject> {
 
     private void newPoolBeans(int size) {
         for (int i = 0; i < size; i++) {
-            this.poolBeanLinkedListPool.add(this.poolBeanFactory.init());
+            T connection = this.poolBeanFactory.init();
+            this.poolBeanLinkedListPool.add(connection);
+            this.integerTMap.put(connection.getId(), connection);
         }
     }
 
@@ -41,19 +44,25 @@ public class MyPool<T extends PoolObject> {
                 increasePoolSize();
             } else {
                 while (this.poolBeanLinkedListPool.isEmpty()) {
-
+                    //暂时设定等待一会
+                    try {
+                        Thread.sleep(50);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
         //取出连接池中一个连接
         T result = this.poolBeanLinkedListPool.removeFirst(); // 删除第一个连接返回
-        integerTMap.putIfAbsent(result.getId(), result);
+        System.out.println("获取连接 id：" + result.getId());
         return result;
     }
 
     //将连接放回连接池
-    public synchronized void releaseConnection(int id) {
+    public void releaseConnection(int id) {
         if (integerTMap.get(id) != null) {
+            System.out.println("释放连接 id：" + id);
             this.poolBeanLinkedListPool.add(integerTMap.get(id));
         }
     }

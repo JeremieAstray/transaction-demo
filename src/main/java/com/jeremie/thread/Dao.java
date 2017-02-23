@@ -6,28 +6,28 @@ package com.jeremie.thread;
 public class Dao {
     private static ThreadLocal<Connection> connectionThreadLocal = ThreadLocal.withInitial(ApplicationContext.connectionPool::getConnection);
 
-    public void test1(String currentThreadId) {
-        connectionThreadLocal.get().doSomething(currentThreadId);
+    public void query(String currentThreadId) {
+        connectionThreadLocal.get().query(currentThreadId);
     }
 
-    public void test2(String currentThreadId) throws Exception {
-        connectionThreadLocal.get().doSomething2(currentThreadId);
+    public void readObject(String currentThreadId) throws Exception {
+        connectionThreadLocal.get().read(currentThreadId);
         //throw new NullPointerException();
     }
 
-    public void test3(String currentThreadId) {
-        connectionThreadLocal.get().doSomething3(currentThreadId);
+    public void deleteObject(String currentThreadId) {
+        connectionThreadLocal.get().delete(currentThreadId);
     }
 
-    public void test4(String currentThreadId) {
-        connectionThreadLocal.get().doSomething(currentThreadId);
+    public void multiQuery(String currentThreadId) {
+        connectionThreadLocal.get().query(currentThreadId);
     }
 
     public Connection getCurrentConnection() {
         return connectionThreadLocal.get();
     }
 
-    public void removeConnection() {
+    public void releaseConnection() {
         ApplicationContext.connectionPool.releaseConnection(connectionThreadLocal.get().getId());
         connectionThreadLocal.remove();
     }
