@@ -6,11 +6,13 @@ import net.sf.cglib.proxy.Enhancer;
  * @author guanhong 2017/2/22.
  */
 public class ApplicationContext {
-    public static MyPool<Connection> connectionPool = new MyPool<>(new Connection.ConnectionPoolBeanFactory());
+
+    public static MyPool<Connection> connectionPool = new MyPool<>(Connection::new);
+    public static ThreadLocal<Connection> connectionThreadLocal = ThreadLocal.withInitial(ApplicationContext.connectionPool::getConnection);
 
     //单例
     public static Dao dao = new Dao();
-    public static Service service = (Service) Enhancer.create(Service.class, new DynamicService());
+    public static Service service = (Service) Enhancer.create(Service.class, new DynamicService(new Service()));
 
 
 }

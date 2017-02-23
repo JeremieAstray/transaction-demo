@@ -13,30 +13,32 @@ public class DynamicService implements MethodInterceptor {
 
     private Service service;
 
-    DynamicService() {
-        this.service = new Service();
+    DynamicService(Service service) {
+        this.service = service;
         this.service.setDao(ApplicationContext.dao);
     }
 
     private void before() {
-        this.service.getDao().getCurrentConnection().startTransaction();
+        ApplicationContext.connectionThreadLocal.get().startTransaction();
     }
 
     private void after() {
-        this.service.getDao().getCurrentConnection().commit();
-        this.service.getDao().releaseConnection();
+        ApplicationContext.connectionThreadLocal.get().commit();
+        ApplicationContext.connectionPool.releaseConnection(ApplicationContext.connectionThreadLocal.get().getId());
+        ApplicationContext.connectionThreadLocal.remove();
     }
 
     private void exception(Exception e) throws Exception {
         e.printStackTrace();
-        this.service.getDao().getCurrentConnection().rollBack();
-        this.service.getDao().releaseConnection();
+        ApplicationContext.connectionThreadLocal.get().rollBack();
+        ApplicationContext.connectionPool.releaseConnection(ApplicationContext.connectionThreadLocal.get().getId());
+        ApplicationContext.connectionThreadLocal.remove();
     }
 
     @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         this.before();
-        Object result = null;
+        Object result;
         try {
             result = method.invoke(this.service, objects);
             this.after();

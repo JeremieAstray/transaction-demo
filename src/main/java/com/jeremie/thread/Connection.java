@@ -13,16 +13,8 @@ public class Connection implements PoolObject {
         this.id = atomicInteger.incrementAndGet();
     }
 
-    public Connection(int id) {
-        this.id = id;
-    }
-
     public int getId() {
         return this.id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void query(String threadId) {
@@ -70,11 +62,11 @@ public class Connection implements PoolObject {
         System.out.println("roll back transaction");
     }
 
-    public static class ConnectionPoolBeanFactory implements PoolBeanFactory<Connection> {
+    /*public static class ConnectionPoolBeanFactory implements PoolBeanFactory<Connection> {
 
         @Override
         public Connection init() {
             return new Connection();
         }
-    }
+    }*/
 }
