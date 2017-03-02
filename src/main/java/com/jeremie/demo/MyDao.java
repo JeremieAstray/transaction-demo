@@ -1,12 +1,12 @@
 package com.jeremie.demo;
 
-import com.jeremie.annotation.Bean;
+import com.jeremie.stereotype.Repository;
 import com.jeremie.spring.ApplicationContext;
 
 /**
  * @author guanhong 2017/2/22.
  */
-@Bean
+@Repository
 public class MyDao {
 
     public void query() {

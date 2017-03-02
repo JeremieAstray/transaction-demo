@@ -27,8 +27,9 @@ public class Test {
         @Override
         public void run() {
             try {
-                ApplicationContext.myService.test1();
-                ApplicationContext.myService.test2();
+                MyService myService = (MyService) ApplicationContext.getBean("com.jeremie.demo.MyService");
+                myService.test1();
+                myService.test2();
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -1,15 +1,23 @@
 package com.jeremie.spring;
 
+import com.jeremie.bean.factory.annotation.Autowried;
+import com.jeremie.bean.factory.annotation.Resource;
+import com.jeremie.bean.factory.annotation.Transaction;
 import com.jeremie.connection.Connection;
 import com.jeremie.connection.MyPool;
-import com.jeremie.demo.MyDao;
-import com.jeremie.demo.MyService;
+import com.jeremie.exception.ClassNotDeclearException;
+import com.jeremie.exception.PackageNotFoundException;
+import com.jeremie.stereotype.Component;
+import com.jeremie.stereotype.Repository;
+import com.jeremie.stereotype.Service;
 import net.sf.cglib.proxy.Enhancer;
+import net.sf.cglib.proxy.MethodInterceptor;
 
 import java.io.File;
+import java.lang.reflect.Field;
 import java.net.URL;
-import java.net.URLDecoder;
 import java.util.*;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * @author guanhong 2017/2/22.
@@ -19,110 +27,144 @@ public class ApplicationContext {
     public static MyPool<Connection> connectionPool = new MyPool<>(Connection::new);
     public static ThreadLocal<Connection> connectionThreadLocal = ThreadLocal.withInitial(ApplicationContext.connectionPool::getConnection);
 
-    //单例
-    Map<String, Object> singleImplement = new HashMap<>();
-    Map<Class, Object> singleClazzImplement = new HashMap<>();
-
-    public static MyDao myDao = new MyDao();
-    public static MyService myService = (MyService) Enhancer.create(MyService.class, new DynamicService(new MyService()));
-
-
-    public static List<String> packageList = new ArrayList<>();
+    private static List<String> packageList = new ArrayList<>();
 
     public static void setScanPackages(String... packages) {
         packageList.addAll(Arrays.asList(packages));
     }
 
+    //单例容器（代理对象与非代理对象）
+    private static Map<String, Object> beanContainer = new HashMap<>();
+    private static Map<String, Object> dynamicBeanContainer = new HashMap<>();
+
+    private static List<Class> annotationClazz = Arrays.asList(Component.class, Repository.class, Service.class);
+    private static List<Class> annotationField = Arrays.asList(Autowried.class, Resource.class);
+
+    private static boolean canIOC(Class clazz) {
+        return annotationClazz.stream().anyMatch(clazz::isAnnotationPresent);
+    }
+
+    private static boolean canIOC(Field field) {
+        return annotationField.stream().anyMatch(field::isAnnotationPresent);
+    }
+
     public static void init() {
-        for (String packageName : packageList) {
-
-        }
-    }
-
-
-    public static List<Class> getClasssFromPackages() throws Exception {
-        List<Class> clazzs = new ArrayList<>();
-        for (String pack : packageList) {
-            URL packDir = Thread.currentThread().getContextClassLoader().getResource(pack);
-            if (packDir != null) {
-                String filePath = packDir.getPath();
-
-            } else {
-                throw new Exception("package name must exist! package: " + pack);
-            }
-
-        }
-        return clazzs;
-    }
-
-    public static List<Class> getClasssFromPackage(String pack) {
-        List<Class> clazzs = new ArrayList<>();
-
-        // 是否循环搜索子包
-        boolean recursive = true;
-
-        // 包名字
-        String packageName = pack;
-        // 包名对应的路径名称
-        String packageDirName = packageName.replace('.', '/');
-
-        Enumeration<URL> dirs;
-
         try {
-            dirs = Thread.currentThread().getContextClassLoader().getResources(packageDirName);
-            while (dirs.hasMoreElements()) {
-                URL url = dirs.nextElement();
-
-                String protocol = url.getProtocol();
-
-                if ("file".equals(protocol)) {
-                    System.out.println("file类型的扫描");
-                    String filePath = URLDecoder.decode(url.getFile(), "UTF-8");
-                    findClassInPackageByFile(packageName, filePath, recursive, clazzs);
-                } else if ("jar".equals(protocol)) {
-                    System.out.println("jar类型的扫描");
-                }
-            }
-
+            List<Class> clazzList = getClasssFromPackages(true);
+            IOC(clazzList);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        return clazzs;
     }
 
-    /**
-     * 在package对应的路径下找到所有的class
-     *
-     * @param packageName package名称
-     * @param filePath    package对应的路径
-     * @param recursive   是否查找子package
-     * @param clazzs      找到class以后存放的集合
-     */
-    public static void findClassInPackageByFile(String packageName, String filePath, final boolean recursive, List<Class> clazzs) {
-        File dir = new File(filePath);
-        if (!dir.exists() || !dir.isDirectory()) {
-            return;
-        }
-        // 在给定的目录下找到所有的文件，并且进行条件过滤
-        File[] dirFiles = dir.listFiles(file -> {
-            boolean acceptDir = recursive && file.isDirectory();// 接受dir目录
-            boolean acceptClass = file.getName().endsWith("class");// 接受class文件
-            return acceptDir || acceptClass;
-        });
-        if (dirFiles != null) {
-            for (File file : dirFiles) {
-                if (file.isDirectory()) {
-                    findClassInPackageByFile(packageName + "." + file.getName(), file.getAbsolutePath(), recursive, clazzs);
+
+    private static List<Class> getClasssFromPackages(final boolean recursive) throws Exception {
+        List<Class> clazzList = new ArrayList<>();
+        Set<String> packageSet = new HashSet<>();
+        if (recursive) {
+            //先取出所有的包
+            Queue<String> packageQueue = new LinkedBlockingQueue<>();
+            packageQueue.addAll(packageList);
+            while (!packageQueue.isEmpty()) {
+                String pack = packageQueue.poll();
+                packageSet.add(pack);
+                String packPath = pack.replace('.', File.separatorChar);
+                URL packDir = Thread.currentThread().getContextClassLoader().getResource(packPath);
+                if (packDir != null) {
+                    String filePathStr = packDir.getPath();
+                    File filePath = new File(filePathStr);
+                    File[] fileList = filePath.listFiles();
+                    if (fileList != null) {
+                        for (File file : fileList) {
+                            if (file.isDirectory()) {
+                                packageQueue.add(pack + '.' + file.getName());
+                            }
+                        }
+                    }
                 } else {
-                    String className = file.getName().substring(0, file.getName().length() - 6);
-                    try {
-                        clazzs.add(Thread.currentThread().getContextClassLoader().loadClass(packageName + "." + className));
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                    throw new PackageNotFoundException("package name must exist! package path: " + packPath);
+                }
+            }
+        } else {
+            packageSet.addAll(packageList);
+        }
+        //遍历包里面文件读取类
+        for (String packageStr : packageSet) {
+            String packPath = packageStr.replace('.', File.separatorChar);
+            URL packDir = Thread.currentThread().getContextClassLoader().getResource(packPath);
+            if (packDir != null) {
+                File packageFile = new File(packDir.getPath());
+                File[] subFiles = packageFile.listFiles();
+                if (subFiles != null) {
+                    for (File file : subFiles) {
+                        if (file.isFile()) {
+                            if (file.getName().endsWith(".class")) {
+                                clazzList.add(Thread.currentThread().getContextClassLoader().loadClass(packageStr + '.' + file.getName().substring(0, file.getName().length() - 6)));
+                            }
+                        }
+                    }
+                }
+            } else {
+                throw new PackageNotFoundException("package name must exist! package path: " + packPath);
+            }
+        }
+        return clazzList;
+    }
+
+
+    private static void IOC(List<Class> clazzList) throws IllegalAccessException, InstantiationException, ClassNotDeclearException {
+        for (Class clazz : clazzList) {
+            if (canIOC(clazz)) {
+                //初始化对象
+                Object instance = clazz.newInstance();
+                beanContainer.put(clazz.getName(), instance);
+                //处理代理对象
+                if (clazz.isAnnotationPresent(Transaction.class)) {
+                    Transaction transaction = (Transaction) clazz.getAnnotation(Transaction.class);
+                    MethodInterceptor dynamicBean = (MethodInterceptor) transaction.transactionDynamicClass().newInstance();
+                    Field[] fields = dynamicBean.getClass().getDeclaredFields();
+                    for (Field f : fields) {
+                        if (f.getName().equals("dynamicObject")) {
+                            if (!f.isAccessible()) {
+                                f.setAccessible(true);
+                            }
+                            f.set(dynamicBean, instance);
+                            break;
+                        }
+                    }
+                    dynamicBeanContainer.put(clazz.getName(), Enhancer.create(instance.getClass(), dynamicBean));
+                }
+            }
+        }
+
+        //处理注入
+        for (Map.Entry<String, Object> entry : beanContainer.entrySet()) {
+            Object o = entry.getValue();
+            Field[] fieldList = entry.getValue().getClass().getDeclaredFields();
+            for (Field field : fieldList) {
+                if (!field.isAccessible()) {
+                    field.setAccessible(true);
+                }
+                if (canIOC(field)) {
+                    Object iocObject = getBean(field.getType().getName());
+                    if (iocObject != null) {
+                        field.set(o, iocObject);
+                    } else {
+                        throw new ClassNotDeclearException(field.getType().getName());
                     }
                 }
             }
+        }
+    }
+
+    //从容器中获取bean
+    public static Object getBean(String beanName) {
+        if (dynamicBeanContainer.containsKey(beanName)) {
+            return dynamicBeanContainer.get(beanName);
+        } else if (beanContainer.containsKey(beanName)) {
+            return beanContainer.get(beanName);
+        } else {
+            return null;
         }
     }
 }
