@@ -33,6 +33,10 @@ public class ApplicationContext {
         packageList.addAll(Arrays.asList(packages));
     }
 
+    public static void setScanPackages(List<String> packages) {
+        packageList.addAll(packages);
+    }
+
     //单例容器（代理对象与非代理对象）
     private static Map<String, Object> beanContainer = new HashMap<>();
     private static Map<String, Object> dynamicBeanContainer = new HashMap<>();
@@ -159,12 +163,8 @@ public class ApplicationContext {
 
     //从容器中获取bean
     public static Object getBean(String beanName) {
-        if (dynamicBeanContainer.containsKey(beanName)) {
-            return dynamicBeanContainer.get(beanName);
-        } else if (beanContainer.containsKey(beanName)) {
-            return beanContainer.get(beanName);
-        } else {
-            return null;
-        }
+        return dynamicBeanContainer.getOrDefault(beanName,
+                beanContainer.getOrDefault(beanName,
+                        null));
     }
 }
