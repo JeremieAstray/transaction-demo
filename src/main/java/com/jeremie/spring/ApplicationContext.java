@@ -125,18 +125,21 @@ public class ApplicationContext {
                 //处理代理对象
                 if (clazz.isAnnotationPresent(Transaction.class)) {
                     Transaction transaction = (Transaction) clazz.getAnnotation(Transaction.class);
-                    MethodInterceptor dynamicBean = (MethodInterceptor) transaction.transactionDynamicClass().newInstance();
-                    Field[] fields = dynamicBean.getClass().getDeclaredFields();
+                    MethodInterceptor methodInterceptor = (MethodInterceptor) transaction.transactionDynamicClass().newInstance();
+                    Field[] fields = methodInterceptor.getClass().getDeclaredFields();
                     for (Field f : fields) {
                         if (f.getName().equals("dynamicObject")) {
-                            if (!f.isAccessible()) {
+                            boolean accessible = f.isAccessible();
+                            if (!accessible) {
                                 f.setAccessible(true);
                             }
-                            f.set(dynamicBean, instance);
+                            f.set(methodInterceptor, instance);
+                            f.setAccessible(accessible);
                             break;
                         }
                     }
-                    dynamicBeanContainer.put(clazz.getName(), Enhancer.create(instance.getClass(), dynamicBean));
+                    //创建代理类
+                    dynamicBeanContainer.put(clazz.getName(), Enhancer.create(instance.getClass(), methodInterceptor));
                 }
             }
         }
@@ -146,7 +149,8 @@ public class ApplicationContext {
             Object o = entry.getValue();
             Field[] fieldList = entry.getValue().getClass().getDeclaredFields();
             for (Field field : fieldList) {
-                if (!field.isAccessible()) {
+                boolean accessible = field.isAccessible();
+                if (!accessible) {
                     field.setAccessible(true);
                 }
                 if (canIOC(field)) {
@@ -157,6 +161,7 @@ public class ApplicationContext {
                         throw new ClassNotDeclearException(field.getType().getName());
                     }
                 }
+                field.setAccessible(accessible);
             }
         }
     }

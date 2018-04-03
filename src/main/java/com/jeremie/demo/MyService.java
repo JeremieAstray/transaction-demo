@@ -1,7 +1,7 @@
 package com.jeremie.demo;
 
 import com.jeremie.bean.factory.annotation.Autowried;
-import com.jeremie.spring.DynamicService;
+import com.jeremie.spring.DynamicHandler;
 import com.jeremie.stereotype.Service;
 import com.jeremie.bean.factory.annotation.Transaction;
 
@@ -9,7 +9,7 @@ import com.jeremie.bean.factory.annotation.Transaction;
  * @author guanhong 2017/2/22.
  */
 @Service
-@Transaction(transactionDynamicClass = DynamicService.class)
+@Transaction(transactionDynamicClass = DynamicHandler.class)
 public class MyService {
 
     @Autowried

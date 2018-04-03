@@ -1,5 +1,6 @@
 package com.jeremie.demo;
 
+import com.jeremie.connection.Connection;
 import com.jeremie.stereotype.Repository;
 import com.jeremie.spring.ApplicationContext;
 
@@ -9,21 +10,25 @@ import com.jeremie.spring.ApplicationContext;
 @Repository
 public class MyDao {
 
+    private Connection getConnection() {
+        return ApplicationContext.connectionThreadLocal.get();
+    }
+
     public void query() {
-        ApplicationContext.connectionThreadLocal.get().query();
+        getConnection().query();
     }
 
     public void readObject() throws Exception {
-        ApplicationContext.connectionThreadLocal.get().read();
+        getConnection().read();
         //throw new NullPointerException();
     }
 
     public void deleteObject() {
-        ApplicationContext.connectionThreadLocal.get().delete();
+        getConnection().delete();
     }
 
     public void multiQuery() {
-        ApplicationContext.connectionThreadLocal.get().query();
+        getConnection().query();
     }
 
 }
