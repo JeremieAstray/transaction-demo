@@ -1,5 +1,7 @@
 package com.jeremie.bean.factory.annotation;
 
+import com.jeremie.spring.TransactionDynamicHandler;
+
 import java.lang.annotation.*;
 
 /**
@@ -11,6 +13,6 @@ import java.lang.annotation.*;
 public @interface Transaction {
     boolean open() default true;
 
-    Class transactionDynamicClass();
+    Class transactionDynamicClass() default TransactionDynamicHandler.class;
 
 }

@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 /**
  * @author guanhong 2017/2/22.
  */
-public class DynamicHandler extends BaseDynamicService implements MethodInterceptor {
+public class TransactionDynamicHandler extends BaseDynamicService implements MethodInterceptor {
 
     private Object dynamicObject;
 
