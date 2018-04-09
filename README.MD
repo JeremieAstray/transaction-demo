@@ -1,8 +1,10 @@
-##模拟spring容器，连接池实现，事务实现
+## 模拟spring容器，连接池实现，事务实现  
+[<博客主页](https://jeremieastray.github.io)  
+  
 
 transaction-demo项目链接:https://github.com/JeremieAstray/transaction-demo
 
-##模拟spring容器实现
+## 模拟spring容器实现
 
 基本数据结构
 
@@ -66,11 +68,10 @@ private static List<Class> getClasssFromPackages(final boolean recursive) throws
             File[] subFiles = packageFile.listFiles();
             if (subFiles != null) {
                 for (File file : subFiles) {
-                    if (file.isFile()) {
-                        if (file.getName().endsWith(".class")) {
-                            clazzList.add(Thread.currentThread().getContextClassLoader().loadClass(packageStr + '.' + file.getName().substring(0, file.getName().length() - 6)));
-                        }
+                    if (!file.isFile() || !file.getName().endsWith(".class")) {
+                        continue;
                     }
+                    clazzList.add(Thread.currentThread().getContextClassLoader().loadClass(packageStr + '.' + file.getName().substring(0, file.getName().length() - 6)));
                 }
             }
         } else {
@@ -93,18 +94,21 @@ private static void IOC(List<Class> clazzList) throws IllegalAccessException, In
             //处理代理对象
             if (clazz.isAnnotationPresent(Transaction.class)) {
                 Transaction transaction = (Transaction) clazz.getAnnotation(Transaction.class);
-                MethodInterceptor dynamicBean = (MethodInterceptor) transaction.transactionDynamicClass().newInstance();
-                Field[] fields = dynamicBean.getClass().getDeclaredFields();
+                MethodInterceptor methodInterceptor = (MethodInterceptor) transaction.transactionDynamicClass().newInstance();
+                Field[] fields = methodInterceptor.getClass().getDeclaredFields();
                 for (Field f : fields) {
                     if (f.getName().equals("dynamicObject")) {
-                        if (!f.isAccessible()) {
+                        boolean accessible = f.isAccessible();
+                        if (!accessible) {
                             f.setAccessible(true);
                         }
-                        f.set(dynamicBean, instance);
+                        f.set(methodInterceptor, instance);
+                        f.setAccessible(accessible);
                         break;
                     }
                 }
-                dynamicBeanContainer.put(clazz.getName(), Enhancer.create(instance.getClass(), dynamicBean));
+                //创建代理类
+                dynamicBeanContainer.put(clazz.getName(), Enhancer.create(instance.getClass(), methodInterceptor));
             }
         }
     }
@@ -114,7 +118,8 @@ private static void IOC(List<Class> clazzList) throws IllegalAccessException, In
         Object o = entry.getValue();
         Field[] fieldList = entry.getValue().getClass().getDeclaredFields();
         for (Field field : fieldList) {
-            if (!field.isAccessible()) {
+            boolean accessible = field.isAccessible();
+            if (!accessible) {
                 field.setAccessible(true);
             }
             if (canIOC(field)) {
@@ -125,12 +130,13 @@ private static void IOC(List<Class> clazzList) throws IllegalAccessException, In
                     throw new ClassNotDeclearException(field.getType().getName());
                 }
             }
+            field.setAccessible(accessible);
         }
     }
 }
 ```
 
-##模拟连接池实现
+## 模拟连接池实现
 
 连接池是创建和管理一个连接的缓冲池的技术，这些连接准备好被任何需要它们的线程使用。
 
@@ -193,7 +199,7 @@ public void releaseConnection(int id) {
 }
 ```
 
-##模拟事务实现
+## 模拟事务实现
 
 事务是逻辑处理原子性的保证手段，通过使用事务控制，可以极大的避免出现逻辑处理失败导致的脏数据等问题。
 
@@ -223,7 +229,7 @@ spring的事务传播如下，这个demo只实现了PROPAGATION_REQUIRED.
 7）PROPAGATION_NESTED ，字面也可知道，nested，嵌套级别事务。该传播级别特征是，如果上下文中存在事务，则嵌套事务执行，如果不存在事务，则新建事务。
 ```
 
-代理service类DynamicService
+代理service类TransactionDynamicHandler
 
 ```
 public class DynamicService extends BaseDynamicService implements MethodInterceptor {
@@ -249,20 +255,33 @@ public class DynamicService extends BaseDynamicService implements MethodIntercep
 基本的事务操作
 
 ```
-public class BaseDynamicService {
+public interface TransactionHandler {
+
+    void before(Method method);
+
+    void after();
+
+    void exception(Exception e) throws Exception;
+}
+
+```
+
+PROPAGATION_REQUIRED实现
+```
+public class PropagationRequiredTransactionDynamicHandler extends TransactionDynamicHandler {
 
     private static ThreadLocal<Stack<Method>> methodStack = ThreadLocal.withInitial(Stack::new);
 
 
     //PROPAGATION_REQUIRED事务处理方式简单实现
-    protected void before(Method method) {
+    public void before(Method method) {
         if (methodStack.get().isEmpty()) {
             ApplicationContext.connectionThreadLocal.get().startTransaction();
         }
         methodStack.get().push(method);
     }
 
-    protected void after() {
+    public void after() {
         methodStack.get().pop();
         if (methodStack.get().empty()) {
             ApplicationContext.connectionThreadLocal.get().commit();
@@ -271,7 +290,7 @@ public class BaseDynamicService {
         }
     }
 
-    protected void exception(Exception e) throws Exception {
+    public void exception(Exception e) throws Exception {
         e.printStackTrace();
         methodStack.get().pop();
         if (methodStack.get().empty()) {
@@ -283,7 +302,9 @@ public class BaseDynamicService {
 }
 ```
 
-##总结
+
+
+## 总结
 
 完成这一系列的编码以后，发现spring的context不是那么简单。这个模拟只能模拟到spring的一些皮毛，只是初尝ioc的写法，并不足以应用于生产环境。
 
