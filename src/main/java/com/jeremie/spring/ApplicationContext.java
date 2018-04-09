@@ -20,7 +20,6 @@ import java.util.*;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
- * @author guanhong 2017/2/22.
  */
 public class ApplicationContext {
 
@@ -112,11 +111,10 @@ public class ApplicationContext {
                 File[] subFiles = packageFile.listFiles();
                 if (subFiles != null) {
                     for (File file : subFiles) {
-                        if (file.isFile()) {
-                            if (file.getName().endsWith(".class")) {
-                                clazzList.add(Thread.currentThread().getContextClassLoader().loadClass(packageStr + '.' + file.getName().substring(0, file.getName().length() - 6)));
-                            }
+                        if (!file.isFile() || !file.getName().endsWith(".class")) {
+                            continue;
                         }
+                        clazzList.add(Thread.currentThread().getContextClassLoader().loadClass(packageStr + '.' + file.getName().substring(0, file.getName().length() - 6)));
                     }
                 }
             } else {
@@ -138,30 +136,31 @@ public class ApplicationContext {
     private static void IOC(List<Class> clazzList) throws IllegalAccessException, InstantiationException, ClassNotDeclearException {
         for (Class clazz : clazzList) {
             //判断类是否需要注入
-            if (canIOC(clazz)) {
-                //初始化对象
-                Object instance = clazz.newInstance();
-                beanContainer.put(clazz.getName(), instance);
-                //处理代理对象
-                if (clazz.isAnnotationPresent(Transaction.class)) {
-                    Transaction transaction = (Transaction) clazz.getAnnotation(Transaction.class);
-                    //事务的代理类
-                    MethodInterceptor methodInterceptor = (MethodInterceptor) transaction.transactionDynamicClass().newInstance();
-                    Field[] fields = methodInterceptor.getClass().getDeclaredFields();
-                    for (Field f : fields) {
-                        if (f.getName().equals("dynamicObject")) {
-                            boolean accessible = f.isAccessible();
-                            if (!accessible) {
-                                f.setAccessible(true);
-                            }
-                            f.set(methodInterceptor, instance);
-                            f.setAccessible(accessible);
-                            break;
+            if (!canIOC(clazz)) {
+                continue;
+            }
+            //初始化对象
+            Object instance = clazz.newInstance();
+            beanContainer.put(clazz.getName(), instance);
+            //处理代理对象
+            if (clazz.isAnnotationPresent(Transaction.class)) {
+                Transaction transaction = (Transaction) clazz.getAnnotation(Transaction.class);
+                //事务的代理类
+                MethodInterceptor methodInterceptor = (MethodInterceptor) transaction.transactionDynamicClass().newInstance();
+                Field[] fields = methodInterceptor.getClass().getSuperclass().getDeclaredFields();
+                for (Field f : fields) {
+                    if (f.getName().equals("dynamicObject")) {
+                        boolean accessible = f.isAccessible();
+                        if (!accessible) {
+                            f.setAccessible(true);
                         }
+                        f.set(methodInterceptor, instance);
+                        f.setAccessible(accessible);
+                        break;
                     }
-                    //创建代理类
-                    dynamicBeanContainer.put(clazz.getName(), Enhancer.create(instance.getClass(), methodInterceptor));
                 }
+                //创建代理类
+                dynamicBeanContainer.put(clazz.getName(), Enhancer.create(instance.getClass(), methodInterceptor));
             }
         }
 

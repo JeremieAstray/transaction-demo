@@ -5,7 +5,6 @@ import com.jeremie.stereotype.Repository;
 import com.jeremie.spring.ApplicationContext;
 
 /**
- * @author guanhong 2017/2/22.
  */
 @Repository
 public class MyDao {

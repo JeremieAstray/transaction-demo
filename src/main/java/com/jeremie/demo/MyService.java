@@ -5,7 +5,6 @@ import com.jeremie.bean.factory.annotation.Transaction;
 import com.jeremie.stereotype.Service;
 
 /**
- * @author guanhong 2017/2/22.
  */
 @Service
 @Transaction
