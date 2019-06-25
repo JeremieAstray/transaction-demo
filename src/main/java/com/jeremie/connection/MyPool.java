@@ -7,7 +7,6 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @author guanhong 2017/2/22.
  */
 public class MyPool<T extends PoolObject> {
     private Deque<T> poolBeanLinkedListPool = new ConcurrentLinkedDeque<>();

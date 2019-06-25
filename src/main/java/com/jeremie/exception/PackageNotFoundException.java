@@ -1,7 +1,6 @@
 package com.jeremie.exception;
 
 /**
- * @author guanhong 2017/2/27.
  */
 public class PackageNotFoundException extends Exception {
 

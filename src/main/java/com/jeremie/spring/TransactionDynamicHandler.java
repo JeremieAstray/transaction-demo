@@ -6,13 +6,11 @@ import net.sf.cglib.proxy.MethodProxy;
 import java.lang.reflect.Method;
 
 /**
- * @author guanhong 2017/2/22.
  */
-public class DynamicService extends BaseDynamicService implements MethodInterceptor {
+public abstract class TransactionDynamicHandler implements TransactionHandler, MethodInterceptor {
 
-    private Object dynamicObject;
+    protected Object dynamicObject;
 
-    @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         this.before(method);
         Object result;

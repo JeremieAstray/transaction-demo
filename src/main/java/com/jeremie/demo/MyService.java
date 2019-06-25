@@ -1,15 +1,13 @@
 package com.jeremie.demo;
 
 import com.jeremie.bean.factory.annotation.Autowried;
-import com.jeremie.spring.DynamicService;
-import com.jeremie.stereotype.Service;
 import com.jeremie.bean.factory.annotation.Transaction;
+import com.jeremie.stereotype.Service;
 
 /**
- * @author guanhong 2017/2/22.
  */
 @Service
-@Transaction(transactionDynamicClass = DynamicService.class)
+@Transaction
 public class MyService {
 
     @Autowried
@@ -20,7 +18,7 @@ public class MyService {
         myDao.query();
     }
 
-    public void test4() throws Exception{
+    public void test4() throws Exception {
         this.test2();
         myDao.multiQuery();
     }

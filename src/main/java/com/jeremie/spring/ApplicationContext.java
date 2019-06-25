@@ -20,7 +20,6 @@ import java.util.*;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
- * @author guanhong 2017/2/22.
  */
 public class ApplicationContext {
 
@@ -33,10 +32,15 @@ public class ApplicationContext {
         packageList.addAll(Arrays.asList(packages));
     }
 
+    public static void setScanPackages(List<String> packages) {
+        packageList.addAll(packages);
+    }
+
     //单例容器（代理对象与非代理对象）
     private static Map<String, Object> beanContainer = new HashMap<>();
     private static Map<String, Object> dynamicBeanContainer = new HashMap<>();
 
+    //spring的注解
     private static List<Class> annotationClazz = Arrays.asList(Component.class, Repository.class, Service.class);
     private static List<Class> annotationField = Arrays.asList(Autowried.class, Resource.class);
 
@@ -48,16 +52,26 @@ public class ApplicationContext {
         return annotationField.stream().anyMatch(field::isAnnotationPresent);
     }
 
-    public static void init() {
+    /**
+     * 初始化
+     */
+    public static void init() throws Exception {
         try {
             List<Class> clazzList = getClasssFromPackages(true);
             IOC(clazzList);
         } catch (Exception e) {
-            e.printStackTrace();
+            throw e;
         }
     }
 
 
+    /**
+     * 扫描当前项目里面的包
+     *
+     * @param recursive recursive
+     * @return List
+     * @throws Exception
+     */
     private static List<Class> getClasssFromPackages(final boolean recursive) throws Exception {
         List<Class> clazzList = new ArrayList<>();
         Set<String> packageSet = new HashSet<>();
@@ -97,11 +111,10 @@ public class ApplicationContext {
                 File[] subFiles = packageFile.listFiles();
                 if (subFiles != null) {
                     for (File file : subFiles) {
-                        if (file.isFile()) {
-                            if (file.getName().endsWith(".class")) {
-                                clazzList.add(Thread.currentThread().getContextClassLoader().loadClass(packageStr + '.' + file.getName().substring(0, file.getName().length() - 6)));
-                            }
+                        if (!file.isFile() || !file.getName().endsWith(".class")) {
+                            continue;
                         }
+                        clazzList.add(Thread.currentThread().getContextClassLoader().loadClass(packageStr + '.' + file.getName().substring(0, file.getName().length() - 6)));
                     }
                 }
             } else {
@@ -112,28 +125,42 @@ public class ApplicationContext {
     }
 
 
+    /**
+     * 注入处理
+     *
+     * @param clazzList 类列表
+     * @throws IllegalAccessException IllegalAccessException
+     * @throws InstantiationException InstantiationException
+     * @throws ClassNotDeclearException ClassNotDeclearException
+     */
     private static void IOC(List<Class> clazzList) throws IllegalAccessException, InstantiationException, ClassNotDeclearException {
         for (Class clazz : clazzList) {
-            if (canIOC(clazz)) {
-                //初始化对象
-                Object instance = clazz.newInstance();
-                beanContainer.put(clazz.getName(), instance);
-                //处理代理对象
-                if (clazz.isAnnotationPresent(Transaction.class)) {
-                    Transaction transaction = (Transaction) clazz.getAnnotation(Transaction.class);
-                    MethodInterceptor dynamicBean = (MethodInterceptor) transaction.transactionDynamicClass().newInstance();
-                    Field[] fields = dynamicBean.getClass().getDeclaredFields();
-                    for (Field f : fields) {
-                        if (f.getName().equals("dynamicObject")) {
-                            if (!f.isAccessible()) {
-                                f.setAccessible(true);
-                            }
-                            f.set(dynamicBean, instance);
-                            break;
+            //判断类是否需要注入
+            if (!canIOC(clazz)) {
+                continue;
+            }
+            //初始化对象
+            Object instance = clazz.newInstance();
+            beanContainer.put(clazz.getName(), instance);
+            //处理代理对象
+            if (clazz.isAnnotationPresent(Transaction.class)) {
+                Transaction transaction = (Transaction) clazz.getAnnotation(Transaction.class);
+                //事务的代理类
+                MethodInterceptor methodInterceptor = (MethodInterceptor) transaction.transactionDynamicClass().newInstance();
+                Field[] fields = methodInterceptor.getClass().getSuperclass().getDeclaredFields();
+                for (Field f : fields) {
+                    if (f.getName().equals("dynamicObject")) {
+                        boolean accessible = f.isAccessible();
+                        if (!accessible) {
+                            f.setAccessible(true);
                         }
+                        f.set(methodInterceptor, instance);
+                        f.setAccessible(accessible);
+                        break;
                     }
-                    dynamicBeanContainer.put(clazz.getName(), Enhancer.create(instance.getClass(), dynamicBean));
                 }
+                //创建代理类
+                dynamicBeanContainer.put(clazz.getName(), Enhancer.create(instance.getClass(), methodInterceptor));
             }
         }
 
@@ -142,7 +169,8 @@ public class ApplicationContext {
             Object o = entry.getValue();
             Field[] fieldList = entry.getValue().getClass().getDeclaredFields();
             for (Field field : fieldList) {
-                if (!field.isAccessible()) {
+                boolean accessible = field.isAccessible();
+                if (!accessible) {
                     field.setAccessible(true);
                 }
                 if (canIOC(field)) {
@@ -153,18 +181,15 @@ public class ApplicationContext {
                         throw new ClassNotDeclearException(field.getType().getName());
                     }
                 }
+                field.setAccessible(accessible);
             }
         }
     }
 
     //从容器中获取bean
     public static Object getBean(String beanName) {
-        if (dynamicBeanContainer.containsKey(beanName)) {
-            return dynamicBeanContainer.get(beanName);
-        } else if (beanContainer.containsKey(beanName)) {
-            return beanContainer.get(beanName);
-        } else {
-            return null;
-        }
+        return dynamicBeanContainer.getOrDefault(beanName,
+                beanContainer.getOrDefault(beanName,
+                        null));
     }
 }
