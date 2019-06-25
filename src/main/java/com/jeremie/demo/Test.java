@@ -36,4 +36,12 @@ public class Test {
         }
     }
 
+    public <T> T test(Class<T> tClass) {
+        String object = "123";
+        if(object.getClass().isAssignableFrom(tClass)){
+            return (T) object;
+        }
+        return null;
+    }
+
 }
