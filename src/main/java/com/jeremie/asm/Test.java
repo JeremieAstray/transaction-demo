@@ -3,7 +3,6 @@ package com.jeremie.asm;
 import org.objectweb.asm.*;
 import org.objectweb.asm.commons.AdviceAdapter;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.lang.reflect.Method;
@@ -37,7 +36,7 @@ public class Test {
 
         //用新的字节码生成类
         Class clazz = new MyClassLoader().defineClass(CLAZZ_NAME, classWriter.toByteArray());
-        File newClazz = new File("D:\\temporary\\programme\\IdeaProjects\\transaction-demo\\target\\classes\\com\\jeremie\\asm", "AsmTestNew.class");
+        File newClazz = new File(ClassLoader.getSystemResource("").getPath() + "com/jeremie/asm", "AsmTestNew.class");
         FileOutputStream fileOutputStream = new FileOutputStream(newClazz);
         fileOutputStream.write(classWriter.toByteArray());
         fileOutputStream.flush();
@@ -94,13 +93,32 @@ public class Test {
         @Override
         protected void onMethodExit(int opcode) {
             super.onMethodExit(opcode);
-            /*if (methodName.equals("addAge")) {
-                //mv.visitInsn(ALOAD);
-                //mv.visitInsn(DUP);
-                mv.visitFieldInsn(GETFIELD, "V", "age", Type.getDescriptor(int.class));
+            if (methodName.equals("addAge")) {
+                //age字段+1
+                mv.visitVarInsn(ALOAD, 0);
+                mv.visitInsn(DUP);
+                mv.visitFieldInsn(GETFIELD, "com/jeremie/asm/AsmTest", "age", Type.getDescriptor(int.class));
+                mv.visitInsn(ICONST_1);
                 mv.visitInsn(IADD);
-                mv.visitFieldInsn(PUTFIELD, "V", "age", Type.getDescriptor(int.class));
-            }*/
+                mv.visitFieldInsn(PUTFIELD, "com/jeremie/asm/AsmTest", "age", Type.getDescriptor(int.class));
+
+                //方法调用
+                mv.visitVarInsn(ALOAD, 0);
+                mv.visitMethodInsn(INVOKEVIRTUAL, "com/jeremie/asm/AsmTest", "getAge", "()I", false);
+                mv.visitInsn(POP);
+
+                //方法调用(带参数)
+                mv.visitVarInsn(ALOAD, 0);
+                mv.visitVarInsn(BIPUSH, 100);
+                mv.visitVarInsn(SIPUSH, 200);
+                mv.visitVarInsn(SIPUSH, 300);
+                mv.visitMethodInsn(INVOKEVIRTUAL, "com/jeremie/asm/AsmTest", "testParam", "(III)Ljava/lang/String;", false);
+                mv.visitVarInsn(ASTORE, 1);
+                mv.visitFieldInsn(GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
+                mv.visitVarInsn(ALOAD, 1);
+                mv.visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
+
+            }
 
             //方法结束前往字节码中插入一段输出方法结束的代码
             addMethodFlag("end");
@@ -113,7 +131,7 @@ public class Test {
             mv.visitVarInsn(LLOAD, startTimeId);
             mv.visitInsn(LSUB);
             mv.visitVarInsn(LSTORE, durationId);*/
-            mv.visitFieldInsn(GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
+            mv.visitFieldInsn(GETSTATIC, "java/lang/System", "err", "Ljava/io/PrintStream;");
             mv.visitTypeInsn(NEW, "java/lang/StringBuilder");
             mv.visitInsn(DUP);
             mv.visitMethodInsn(INVOKESPECIAL, "java/lang/StringBuilder", "<init>", "()V", false);

@@ -29,5 +29,12 @@ public class AsmTest {
     public void addAge() {
         System.out.println("method addAge");
         age++;
+        String temp = testParam(100, 200, 300);
+        //System.out.println(temp);
+    }
+
+    public String testParam(int test, int test2, int test3) {
+        System.out.println(test + " " + test2 + " " + test3 + " testParam");
+        return test + " testParam";
     }
 }

@@ -20,6 +20,7 @@ import java.util.*;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
+ *
  */
 public class ApplicationContext {
 
@@ -129,8 +130,8 @@ public class ApplicationContext {
      * 注入处理
      *
      * @param clazzList 类列表
-     * @throws IllegalAccessException IllegalAccessException
-     * @throws InstantiationException InstantiationException
+     * @throws IllegalAccessException   IllegalAccessException
+     * @throws InstantiationException   InstantiationException
      * @throws ClassNotDeclearException ClassNotDeclearException
      */
     private static void IOC(List<Class> clazzList) throws IllegalAccessException, InstantiationException, ClassNotDeclearException {
@@ -147,27 +148,33 @@ public class ApplicationContext {
                 Transaction transaction = (Transaction) clazz.getAnnotation(Transaction.class);
                 //事务的代理类
                 MethodInterceptor methodInterceptor = (MethodInterceptor) transaction.transactionDynamicClass().newInstance();
-                Field[] fields = methodInterceptor.getClass().getSuperclass().getDeclaredFields();
-                for (Field f : fields) {
-                    if (f.getName().equals("dynamicObject")) {
-                        boolean accessible = f.isAccessible();
-                        if (!accessible) {
-                            f.setAccessible(true);
-                        }
-                        f.set(methodInterceptor, instance);
-                        f.setAccessible(accessible);
-                        break;
-                    }
-                }
                 //创建代理类
                 dynamicBeanContainer.put(clazz.getName(), Enhancer.create(instance.getClass(), methodInterceptor));
             }
         }
+        //注入没有代理的bean
+        dealIOC(beanContainer);
+        //注入代理的bean
+        dealIOC(dynamicBeanContainer);
+    }
 
+    /**
+     * 处理注入
+     *
+     * @param container container
+     */
+    private static void dealIOC(Map<String, Object> container) throws IllegalAccessException, InstantiationException, ClassNotDeclearException {
         //处理注入
-        for (Map.Entry<String, Object> entry : beanContainer.entrySet()) {
+        for (Map.Entry<String, Object> entry : container.entrySet()) {
             Object o = entry.getValue();
-            Field[] fieldList = entry.getValue().getClass().getDeclaredFields();
+
+            List<Field> fieldList = new ArrayList<>();
+            Class curClazz = o.getClass();
+            //便利参数列表
+            while (curClazz != null) {
+                fieldList.addAll(Arrays.asList(curClazz.getDeclaredFields()));
+                curClazz = curClazz.getSuperclass();
+            }
             for (Field field : fieldList) {
                 boolean accessible = field.isAccessible();
                 if (!accessible) {

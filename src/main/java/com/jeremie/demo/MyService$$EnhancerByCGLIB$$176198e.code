@@ -1,0 +1,1341 @@
+Classfile /Users/jeremie/programme/IdeaProjects/oschina/transaction-demo/target/classes/MyService.class
+  Last modified 2019-6-28; size 7460 bytes
+  MD5 checksum d38496ef156f72968624a9074ca0e681
+  Compiled from "<generated>"
+public class com.jeremie.demo.MyService$$EnhancerByCGLIB$$176198e extends com.jeremie.demo.MyService implements net.sf.cglib.proxy.Factory
+  minor version: 0
+  major version: 46
+  flags: ACC_PUBLIC
+Constant pool:
+    #1 = Utf8               com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e
+    #2 = Class              #1            // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e
+    #3 = Utf8               com/jeremie/demo/MyService
+    #4 = Class              #3            // com/jeremie/demo/MyService
+    #5 = Utf8               net/sf/cglib/proxy/Factory
+    #6 = Class              #5            // net/sf/cglib/proxy/Factory
+    #7 = Utf8               <generated>
+    #8 = Utf8               CGLIB$BOUND
+    #9 = Utf8               Z
+   #10 = Utf8               CGLIB$FACTORY_DATA
+   #11 = Utf8               Ljava/lang/Object;
+   #12 = Utf8               CGLIB$THREAD_CALLBACKS
+   #13 = Utf8               Ljava/lang/ThreadLocal;
+   #14 = Utf8               CGLIB$STATIC_CALLBACKS
+   #15 = Utf8               [Lnet/sf/cglib/proxy/Callback;
+   #16 = Utf8               CGLIB$CALLBACK_0
+   #17 = Utf8               Lnet/sf/cglib/proxy/MethodInterceptor;
+   #18 = Utf8               CGLIB$CALLBACK_FILTER
+   #19 = Utf8               CGLIB$STATICHOOK1
+   #20 = Utf8               ()V
+   #21 = Utf8               java/lang/ThreadLocal
+   #22 = Class              #21           // java/lang/ThreadLocal
+   #23 = Utf8               <init>
+   #24 = NameAndType        #23:#20       // "<init>":()V
+   #25 = Methodref          #22.#24       // java/lang/ThreadLocal."<init>":()V
+   #26 = NameAndType        #12:#13       // CGLIB$THREAD_CALLBACKS:Ljava/lang/ThreadLocal;
+   #27 = Fieldref           #2.#26        // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$THREAD_CALLBACKS:Ljava/lang/ThreadLocal;
+   #28 = Utf8               CGLIB$test4$0$Method
+   #29 = Utf8               Ljava/lang/reflect/Method;
+   #30 = Utf8               CGLIB$test4$0$Proxy
+   #31 = Utf8               Lnet/sf/cglib/proxy/MethodProxy;
+   #32 = Utf8               CGLIB$emptyArgs
+   #33 = Utf8               [Ljava/lang/Object;
+   #34 = Utf8               CGLIB$test4$0
+   #35 = Utf8               java/lang/Exception
+   #36 = Class              #35           // java/lang/Exception
+   #37 = Utf8               test4
+   #38 = NameAndType        #37:#20       // test4:()V
+   #39 = Methodref          #4.#38        // com/jeremie/demo/MyService.test4:()V
+   #40 = NameAndType        #16:#17       // CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+   #41 = Fieldref           #2.#40        // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+   #42 = Utf8               CGLIB$BIND_CALLBACKS
+   #43 = Utf8               (Ljava/lang/Object;)V
+   #44 = NameAndType        #42:#43       // CGLIB$BIND_CALLBACKS:(Ljava/lang/Object;)V
+   #45 = Methodref          #2.#44        // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$BIND_CALLBACKS:(Ljava/lang/Object;)V
+   #46 = NameAndType        #28:#29       // CGLIB$test4$0$Method:Ljava/lang/reflect/Method;
+   #47 = Fieldref           #2.#46        // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$test4$0$Method:Ljava/lang/reflect/Method;
+   #48 = NameAndType        #32:#33       // CGLIB$emptyArgs:[Ljava/lang/Object;
+   #49 = Fieldref           #2.#48        // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$emptyArgs:[Ljava/lang/Object;
+   #50 = NameAndType        #30:#31       // CGLIB$test4$0$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+   #51 = Fieldref           #2.#50        // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$test4$0$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+   #52 = Utf8               net/sf/cglib/proxy/MethodInterceptor
+   #53 = Class              #52           // net/sf/cglib/proxy/MethodInterceptor
+   #54 = Utf8               intercept
+   #55 = Utf8               (Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;Lnet/sf/cglib/proxy/MethodProxy;)Ljava/lang/Object;
+   #56 = NameAndType        #54:#55       // intercept:(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;Lnet/sf/cglib/proxy/MethodProxy;)Ljava/lang/Object;
+   #57 = InterfaceMethodref #53.#56       // net/sf/cglib/proxy/MethodInterceptor.intercept:(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;Lnet/sf/cglib/proxy/MethodProxy;)Ljava/lang/Object;
+   #58 = Utf8               CGLIB$test2$1$Method
+   #59 = Utf8               CGLIB$test2$1$Proxy
+   #60 = Utf8               CGLIB$test2$1
+   #61 = Utf8               test2
+   #62 = NameAndType        #61:#20       // test2:()V
+   #63 = Methodref          #4.#62        // com/jeremie/demo/MyService.test2:()V
+   #64 = NameAndType        #58:#29       // CGLIB$test2$1$Method:Ljava/lang/reflect/Method;
+   #65 = Fieldref           #2.#64        // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$test2$1$Method:Ljava/lang/reflect/Method;
+   #66 = NameAndType        #59:#31       // CGLIB$test2$1$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+   #67 = Fieldref           #2.#66        // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$test2$1$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+   #68 = Utf8               CGLIB$setMyDao$2$Method
+   #69 = Utf8               CGLIB$setMyDao$2$Proxy
+   #70 = Utf8               CGLIB$setMyDao$2
+   #71 = Utf8               (Lcom/jeremie/demo/MyDao;)V
+   #72 = Utf8               setMyDao
+   #73 = NameAndType        #72:#71       // setMyDao:(Lcom/jeremie/demo/MyDao;)V
+   #74 = Methodref          #4.#73        // com/jeremie/demo/MyService.setMyDao:(Lcom/jeremie/demo/MyDao;)V
+   #75 = NameAndType        #68:#29       // CGLIB$setMyDao$2$Method:Ljava/lang/reflect/Method;
+   #76 = Fieldref           #2.#75        // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$setMyDao$2$Method:Ljava/lang/reflect/Method;
+   #77 = Utf8               java/lang/Object
+   #78 = Class              #77           // java/lang/Object
+   #79 = NameAndType        #69:#31       // CGLIB$setMyDao$2$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+   #80 = Fieldref           #2.#79        // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$setMyDao$2$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+   #81 = Utf8               com/jeremie/demo/MyDao
+   #82 = Class              #81           // com/jeremie/demo/MyDao
+   #83 = Utf8               CGLIB$test3$3$Method
+   #84 = Utf8               CGLIB$test3$3$Proxy
+   #85 = Utf8               CGLIB$test3$3
+   #86 = Utf8               test3
+   #87 = NameAndType        #86:#20       // test3:()V
+   #88 = Methodref          #4.#87        // com/jeremie/demo/MyService.test3:()V
+   #89 = NameAndType        #83:#29       // CGLIB$test3$3$Method:Ljava/lang/reflect/Method;
+   #90 = Fieldref           #2.#89        // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$test3$3$Method:Ljava/lang/reflect/Method;
+   #91 = NameAndType        #84:#31       // CGLIB$test3$3$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+   #92 = Fieldref           #2.#91        // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$test3$3$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+   #93 = Utf8               CGLIB$getMyDao$4$Method
+   #94 = Utf8               CGLIB$getMyDao$4$Proxy
+   #95 = Utf8               CGLIB$getMyDao$4
+   #96 = Utf8               ()Lcom/jeremie/demo/MyDao;
+   #97 = Utf8               getMyDao
+   #98 = NameAndType        #97:#96       // getMyDao:()Lcom/jeremie/demo/MyDao;
+   #99 = Methodref          #4.#98        // com/jeremie/demo/MyService.getMyDao:()Lcom/jeremie/demo/MyDao;
+  #100 = NameAndType        #93:#29       // CGLIB$getMyDao$4$Method:Ljava/lang/reflect/Method;
+  #101 = Fieldref           #2.#100       // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$getMyDao$4$Method:Ljava/lang/reflect/Method;
+  #102 = NameAndType        #94:#31       // CGLIB$getMyDao$4$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+  #103 = Fieldref           #2.#102       // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$getMyDao$4$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+  #104 = Utf8               CGLIB$test1$5$Method
+  #105 = Utf8               CGLIB$test1$5$Proxy
+  #106 = Utf8               CGLIB$test1$5
+  #107 = Utf8               test1
+  #108 = NameAndType        #107:#20      // test1:()V
+  #109 = Methodref          #4.#108       // com/jeremie/demo/MyService.test1:()V
+  #110 = NameAndType        #104:#29      // CGLIB$test1$5$Method:Ljava/lang/reflect/Method;
+  #111 = Fieldref           #2.#110       // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$test1$5$Method:Ljava/lang/reflect/Method;
+  #112 = NameAndType        #105:#31      // CGLIB$test1$5$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+  #113 = Fieldref           #2.#112       // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$test1$5$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+  #114 = Utf8               CGLIB$equals$6$Method
+  #115 = Utf8               CGLIB$equals$6$Proxy
+  #116 = Utf8               CGLIB$equals$6
+  #117 = Utf8               (Ljava/lang/Object;)Z
+  #118 = Utf8               equals
+  #119 = NameAndType        #118:#117     // equals:(Ljava/lang/Object;)Z
+  #120 = Methodref          #4.#119       // com/jeremie/demo/MyService.equals:(Ljava/lang/Object;)Z
+  #121 = NameAndType        #114:#29      // CGLIB$equals$6$Method:Ljava/lang/reflect/Method;
+  #122 = Fieldref           #2.#121       // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$equals$6$Method:Ljava/lang/reflect/Method;
+  #123 = NameAndType        #115:#31      // CGLIB$equals$6$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+  #124 = Fieldref           #2.#123       // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$equals$6$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+  #125 = Utf8               java/lang/Boolean
+  #126 = Class              #125          // java/lang/Boolean
+  #127 = Utf8               booleanValue
+  #128 = Utf8               ()Z
+  #129 = NameAndType        #127:#128     // booleanValue:()Z
+  #130 = Methodref          #126.#129     // java/lang/Boolean.booleanValue:()Z
+  #131 = Utf8               CGLIB$toString$7$Method
+  #132 = Utf8               CGLIB$toString$7$Proxy
+  #133 = Utf8               CGLIB$toString$7
+  #134 = Utf8               ()Ljava/lang/String;
+  #135 = Utf8               toString
+  #136 = NameAndType        #135:#134     // toString:()Ljava/lang/String;
+  #137 = Methodref          #4.#136       // com/jeremie/demo/MyService.toString:()Ljava/lang/String;
+  #138 = NameAndType        #131:#29      // CGLIB$toString$7$Method:Ljava/lang/reflect/Method;
+  #139 = Fieldref           #2.#138       // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$toString$7$Method:Ljava/lang/reflect/Method;
+  #140 = NameAndType        #132:#31      // CGLIB$toString$7$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+  #141 = Fieldref           #2.#140       // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$toString$7$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+  #142 = Utf8               java/lang/String
+  #143 = Class              #142          // java/lang/String
+  #144 = Utf8               CGLIB$hashCode$8$Method
+  #145 = Utf8               CGLIB$hashCode$8$Proxy
+  #146 = Utf8               CGLIB$hashCode$8
+  #147 = Utf8               ()I
+  #148 = Utf8               hashCode
+  #149 = NameAndType        #148:#147     // hashCode:()I
+  #150 = Methodref          #4.#149       // com/jeremie/demo/MyService.hashCode:()I
+  #151 = NameAndType        #144:#29      // CGLIB$hashCode$8$Method:Ljava/lang/reflect/Method;
+  #152 = Fieldref           #2.#151       // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$hashCode$8$Method:Ljava/lang/reflect/Method;
+  #153 = NameAndType        #145:#31      // CGLIB$hashCode$8$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+  #154 = Fieldref           #2.#153       // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$hashCode$8$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+  #155 = Utf8               java/lang/Number
+  #156 = Class              #155          // java/lang/Number
+  #157 = Utf8               intValue
+  #158 = NameAndType        #157:#147     // intValue:()I
+  #159 = Methodref          #156.#158     // java/lang/Number.intValue:()I
+  #160 = Utf8               CGLIB$clone$9$Method
+  #161 = Utf8               CGLIB$clone$9$Proxy
+  #162 = Utf8               CGLIB$clone$9
+  #163 = Utf8               ()Ljava/lang/Object;
+  #164 = Utf8               java/lang/CloneNotSupportedException
+  #165 = Class              #164          // java/lang/CloneNotSupportedException
+  #166 = Utf8               clone
+  #167 = NameAndType        #166:#163     // clone:()Ljava/lang/Object;
+  #168 = Methodref          #4.#167       // com/jeremie/demo/MyService.clone:()Ljava/lang/Object;
+  #169 = NameAndType        #160:#29      // CGLIB$clone$9$Method:Ljava/lang/reflect/Method;
+  #170 = Fieldref           #2.#169       // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$clone$9$Method:Ljava/lang/reflect/Method;
+  #171 = NameAndType        #161:#31      // CGLIB$clone$9$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+  #172 = Fieldref           #2.#171       // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$clone$9$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+  #173 = Utf8               CGLIB$findMethodProxy
+  #174 = Utf8               (Lnet/sf/cglib/core/Signature;)Lnet/sf/cglib/proxy/MethodProxy;
+  #175 = Methodref          #78.#136      // java/lang/Object.toString:()Ljava/lang/String;
+  #176 = Methodref          #78.#149      // java/lang/Object.hashCode:()I
+  #177 = Utf8               setMyDao(Lcom/jeremie/demo/MyDao;)V
+  #178 = String             #177          // setMyDao(Lcom/jeremie/demo/MyDao;)V
+  #179 = Methodref          #78.#119      // java/lang/Object.equals:(Ljava/lang/Object;)Z
+  #180 = Utf8               test1()V
+  #181 = String             #180          // test1()V
+  #182 = Utf8               test2()V
+  #183 = String             #182          // test2()V
+  #184 = Utf8               test3()V
+  #185 = String             #184          // test3()V
+  #186 = Utf8               test4()V
+  #187 = String             #186          // test4()V
+  #188 = Utf8               getMyDao()Lcom/jeremie/demo/MyDao;
+  #189 = String             #188          // getMyDao()Lcom/jeremie/demo/MyDao;
+  #190 = Utf8               clone()Ljava/lang/Object;
+  #191 = String             #190          // clone()Ljava/lang/Object;
+  #192 = Utf8               equals(Ljava/lang/Object;)Z
+  #193 = String             #192          // equals(Ljava/lang/Object;)Z
+  #194 = Utf8               toString()Ljava/lang/String;
+  #195 = String             #194          // toString()Ljava/lang/String;
+  #196 = Utf8               hashCode()I
+  #197 = String             #196          // hashCode()I
+  #198 = Utf8               net/sf/cglib/core/Signature
+  #199 = Class              #198          // net/sf/cglib/core/Signature
+  #200 = Utf8               com.jeremie.demo.MyService$$EnhancerByCGLIB$$176198e
+  #201 = String             #200          // com.jeremie.demo.MyService$$EnhancerByCGLIB$$176198e
+  #202 = Utf8               java/lang/Class
+  #203 = Class              #202          // java/lang/Class
+  #204 = Utf8               forName
+  #205 = Utf8               (Ljava/lang/String;)Ljava/lang/Class;
+  #206 = NameAndType        #204:#205     // forName:(Ljava/lang/String;)Ljava/lang/Class;
+  #207 = Methodref          #203.#206     // java/lang/Class.forName:(Ljava/lang/String;)Ljava/lang/Class;
+  #208 = String             #118          // equals
+  #209 = String             #117          // (Ljava/lang/Object;)Z
+  #210 = String             #135          // toString
+  #211 = String             #134          // ()Ljava/lang/String;
+  #212 = String             #148          // hashCode
+  #213 = String             #147          // ()I
+  #214 = String             #166          // clone
+  #215 = String             #163          // ()Ljava/lang/Object;
+  #216 = Utf8               java.lang.Object
+  #217 = String             #216          // java.lang.Object
+  #218 = Utf8               getDeclaredMethods
+  #219 = Utf8               ()[Ljava/lang/reflect/Method;
+  #220 = NameAndType        #218:#219     // getDeclaredMethods:()[Ljava/lang/reflect/Method;
+  #221 = Methodref          #203.#220     // java/lang/Class.getDeclaredMethods:()[Ljava/lang/reflect/Method;
+  #222 = Utf8               net/sf/cglib/core/ReflectUtils
+  #223 = Class              #222          // net/sf/cglib/core/ReflectUtils
+  #224 = Utf8               findMethods
+  #225 = Utf8               ([Ljava/lang/String;[Ljava/lang/reflect/Method;)[Ljava/lang/reflect/Method;
+  #226 = NameAndType        #224:#225     // findMethods:([Ljava/lang/String;[Ljava/lang/reflect/Method;)[Ljava/lang/reflect/Method;
+  #227 = Methodref          #223.#226     // net/sf/cglib/core/ReflectUtils.findMethods:([Ljava/lang/String;[Ljava/lang/reflect/Method;)[Ljava/lang/reflect/Method;
+  #228 = String             #116          // CGLIB$equals$6
+  #229 = Utf8               net/sf/cglib/proxy/MethodProxy
+  #230 = Class              #229          // net/sf/cglib/proxy/MethodProxy
+  #231 = Utf8               create
+  #232 = Utf8               (Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/sf/cglib/proxy/MethodProxy;
+  #233 = NameAndType        #231:#232     // create:(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/sf/cglib/proxy/MethodProxy;
+  #234 = Methodref          #230.#233     // net/sf/cglib/proxy/MethodProxy.create:(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/sf/cglib/proxy/MethodProxy;
+  #235 = String             #133          // CGLIB$toString$7
+  #236 = String             #146          // CGLIB$hashCode$8
+  #237 = String             #162          // CGLIB$clone$9
+  #238 = String             #37           // test4
+  #239 = String             #20           // ()V
+  #240 = String             #61           // test2
+  #241 = String             #72           // setMyDao
+  #242 = String             #71           // (Lcom/jeremie/demo/MyDao;)V
+  #243 = String             #86           // test3
+  #244 = String             #97           // getMyDao
+  #245 = String             #96           // ()Lcom/jeremie/demo/MyDao;
+  #246 = String             #107          // test1
+  #247 = Utf8               com.jeremie.demo.MyService
+  #248 = String             #247          // com.jeremie.demo.MyService
+  #249 = String             #34           // CGLIB$test4$0
+  #250 = String             #60           // CGLIB$test2$1
+  #251 = String             #70           // CGLIB$setMyDao$2
+  #252 = String             #85           // CGLIB$test3$3
+  #253 = String             #95           // CGLIB$getMyDao$4
+  #254 = String             #106          // CGLIB$test1$5
+  #255 = Methodref          #4.#24        // com/jeremie/demo/MyService."<init>":()V
+  #256 = Utf8               CGLIB$SET_THREAD_CALLBACKS
+  #257 = Utf8               ([Lnet/sf/cglib/proxy/Callback;)V
+  #258 = Utf8               set
+  #259 = NameAndType        #258:#43      // set:(Ljava/lang/Object;)V
+  #260 = Methodref          #22.#259      // java/lang/ThreadLocal.set:(Ljava/lang/Object;)V
+  #261 = Utf8               CGLIB$SET_STATIC_CALLBACKS
+  #262 = NameAndType        #14:#15       // CGLIB$STATIC_CALLBACKS:[Lnet/sf/cglib/proxy/Callback;
+  #263 = Fieldref           #2.#262       // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$STATIC_CALLBACKS:[Lnet/sf/cglib/proxy/Callback;
+  #264 = NameAndType        #8:#9         // CGLIB$BOUND:Z
+  #265 = Fieldref           #2.#264       // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$BOUND:Z
+  #266 = Utf8               get
+  #267 = NameAndType        #266:#163     // get:()Ljava/lang/Object;
+  #268 = Methodref          #22.#267      // java/lang/ThreadLocal.get:()Ljava/lang/Object;
+  #269 = Class              #15           // "[Lnet/sf/cglib/proxy/Callback;"
+  #270 = Utf8               newInstance
+  #271 = Utf8               ([Lnet/sf/cglib/proxy/Callback;)Ljava/lang/Object;
+  #272 = NameAndType        #256:#257     // CGLIB$SET_THREAD_CALLBACKS:([Lnet/sf/cglib/proxy/Callback;)V
+  #273 = Methodref          #2.#272       // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$SET_THREAD_CALLBACKS:([Lnet/sf/cglib/proxy/Callback;)V
+  #274 = Methodref          #2.#24        // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e."<init>":()V
+  #275 = Utf8               (Lnet/sf/cglib/proxy/Callback;)Ljava/lang/Object;
+  #276 = Utf8               net/sf/cglib/proxy/Callback
+  #277 = Class              #276          // net/sf/cglib/proxy/Callback
+  #278 = Utf8               ([Ljava/lang/Class;[Ljava/lang/Object;[Lnet/sf/cglib/proxy/Callback;)Ljava/lang/Object;
+  #279 = Utf8               java/lang/IllegalArgumentException
+  #280 = Class              #279          // java/lang/IllegalArgumentException
+  #281 = Utf8               Constructor not found
+  #282 = String             #281          // Constructor not found
+  #283 = Utf8               (Ljava/lang/String;)V
+  #284 = NameAndType        #23:#283      // "<init>":(Ljava/lang/String;)V
+  #285 = Methodref          #280.#284     // java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+  #286 = Utf8               [Ljava/lang/Class;
+  #287 = Class              #286          // "[Ljava/lang/Class;"
+  #288 = Class              #33           // "[Ljava/lang/Object;"
+  #289 = Utf8               getCallback
+  #290 = Utf8               (I)Lnet/sf/cglib/proxy/Callback;
+  #291 = Utf8               setCallback
+  #292 = Utf8               (ILnet/sf/cglib/proxy/Callback;)V
+  #293 = Utf8               getCallbacks
+  #294 = Utf8               ()[Lnet/sf/cglib/proxy/Callback;
+  #295 = Utf8               setCallbacks
+  #296 = Utf8               <clinit>
+  #297 = NameAndType        #19:#20       // CGLIB$STATICHOOK1:()V
+  #298 = Methodref          #2.#297       // com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e.CGLIB$STATICHOOK1:()V
+  #299 = Utf8               java/lang/Throwable
+  #300 = Class              #299          // java/lang/Throwable
+  #301 = Utf8               Code
+  #302 = Utf8               StackMap
+  #303 = Utf8               Exceptions
+  #304 = Utf8               SourceFile
+{
+  public static java.lang.Object CGLIB$FACTORY_DATA;
+    descriptor: Ljava/lang/Object;
+    flags: ACC_PUBLIC, ACC_STATIC
+
+  static void CGLIB$STATICHOOK1();
+    descriptor: ()V
+    flags: ACC_STATIC
+    Code:
+      stack=6, locals=2, args_size=0
+         0: new           #22                 // class java/lang/ThreadLocal
+         3: dup
+         4: invokespecial #25                 // Method java/lang/ThreadLocal."<init>":()V
+         7: putstatic     #27                 // Field CGLIB$THREAD_CALLBACKS:Ljava/lang/ThreadLocal;
+        10: iconst_0
+        11: anewarray     #78                 // class java/lang/Object
+        14: putstatic     #49                 // Field CGLIB$emptyArgs:[Ljava/lang/Object;
+        17: ldc           #201                // String com.jeremie.demo.MyService$$EnhancerByCGLIB$$176198e
+        19: invokestatic  #207                // Method java/lang/Class.forName:(Ljava/lang/String;)Ljava/lang/Class;
+        22: astore_0
+        23: bipush        8
+        25: anewarray     #143                // class java/lang/String
+        28: dup
+        29: iconst_0
+        30: ldc           #208                // String equals
+        32: aastore
+        33: dup
+        34: iconst_1
+        35: ldc           #209                // String (Ljava/lang/Object;)Z
+        37: aastore
+        38: dup
+        39: iconst_2
+        40: ldc           #210                // String toString
+        42: aastore
+        43: dup
+        44: iconst_3
+        45: ldc           #211                // String ()Ljava/lang/String;
+        47: aastore
+        48: dup
+        49: iconst_4
+        50: ldc           #212                // String hashCode
+        52: aastore
+        53: dup
+        54: iconst_5
+        55: ldc           #213                // String ()I
+        57: aastore
+        58: dup
+        59: bipush        6
+        61: ldc           #214                // String clone
+        63: aastore
+        64: dup
+        65: bipush        7
+        67: ldc           #215                // String ()Ljava/lang/Object;
+        69: aastore
+        70: ldc           #217                // String java.lang.Object
+        72: invokestatic  #207                // Method java/lang/Class.forName:(Ljava/lang/String;)Ljava/lang/Class;
+        75: dup
+        76: astore_1
+        77: invokevirtual #221                // Method java/lang/Class.getDeclaredMethods:()[Ljava/lang/reflect/Method;
+        80: invokestatic  #227                // Method net/sf/cglib/core/ReflectUtils.findMethods:([Ljava/lang/String;[Ljava/lang/reflect/Method;)[Ljava/lang/reflect/Method;
+        83: dup
+        84: iconst_0
+        85: aaload
+        86: putstatic     #122                // Field CGLIB$equals$6$Method:Ljava/lang/reflect/Method;
+        89: aload_1
+        90: aload_0
+        91: ldc           #209                // String (Ljava/lang/Object;)Z
+        93: ldc           #208                // String equals
+        95: ldc           #228                // String CGLIB$equals$6
+        97: invokestatic  #234                // Method net/sf/cglib/proxy/MethodProxy.create:(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/sf/cglib/proxy/MethodProxy;
+       100: putstatic     #124                // Field CGLIB$equals$6$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       103: dup
+       104: iconst_1
+       105: aaload
+       106: putstatic     #139                // Field CGLIB$toString$7$Method:Ljava/lang/reflect/Method;
+       109: aload_1
+       110: aload_0
+       111: ldc           #211                // String ()Ljava/lang/String;
+       113: ldc           #210                // String toString
+       115: ldc           #235                // String CGLIB$toString$7
+       117: invokestatic  #234                // Method net/sf/cglib/proxy/MethodProxy.create:(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/sf/cglib/proxy/MethodProxy;
+       120: putstatic     #141                // Field CGLIB$toString$7$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       123: dup
+       124: iconst_2
+       125: aaload
+       126: putstatic     #152                // Field CGLIB$hashCode$8$Method:Ljava/lang/reflect/Method;
+       129: aload_1
+       130: aload_0
+       131: ldc           #213                // String ()I
+       133: ldc           #212                // String hashCode
+       135: ldc           #236                // String CGLIB$hashCode$8
+       137: invokestatic  #234                // Method net/sf/cglib/proxy/MethodProxy.create:(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/sf/cglib/proxy/MethodProxy;
+       140: putstatic     #154                // Field CGLIB$hashCode$8$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       143: dup
+       144: iconst_3
+       145: aaload
+       146: putstatic     #170                // Field CGLIB$clone$9$Method:Ljava/lang/reflect/Method;
+       149: aload_1
+       150: aload_0
+       151: ldc           #215                // String ()Ljava/lang/Object;
+       153: ldc           #214                // String clone
+       155: ldc           #237                // String CGLIB$clone$9
+       157: invokestatic  #234                // Method net/sf/cglib/proxy/MethodProxy.create:(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/sf/cglib/proxy/MethodProxy;
+       160: putstatic     #172                // Field CGLIB$clone$9$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       163: pop
+       164: bipush        12
+       166: anewarray     #143                // class java/lang/String
+       169: dup
+       170: iconst_0
+       171: ldc           #238                // String test4
+       173: aastore
+       174: dup
+       175: iconst_1
+       176: ldc           #239                // String ()V
+       178: aastore
+       179: dup
+       180: iconst_2
+       181: ldc           #240                // String test2
+       183: aastore
+       184: dup
+       185: iconst_3
+       186: ldc           #239                // String ()V
+       188: aastore
+       189: dup
+       190: iconst_4
+       191: ldc           #241                // String setMyDao
+       193: aastore
+       194: dup
+       195: iconst_5
+       196: ldc           #242                // String (Lcom/jeremie/demo/MyDao;)V
+       198: aastore
+       199: dup
+       200: bipush        6
+       202: ldc           #243                // String test3
+       204: aastore
+       205: dup
+       206: bipush        7
+       208: ldc           #239                // String ()V
+       210: aastore
+       211: dup
+       212: bipush        8
+       214: ldc           #244                // String getMyDao
+       216: aastore
+       217: dup
+       218: bipush        9
+       220: ldc           #245                // String ()Lcom/jeremie/demo/MyDao;
+       222: aastore
+       223: dup
+       224: bipush        10
+       226: ldc           #246                // String test1
+       228: aastore
+       229: dup
+       230: bipush        11
+       232: ldc           #239                // String ()V
+       234: aastore
+       235: ldc           #248                // String com.jeremie.demo.MyService
+       237: invokestatic  #207                // Method java/lang/Class.forName:(Ljava/lang/String;)Ljava/lang/Class;
+       240: dup
+       241: astore_1
+       242: invokevirtual #221                // Method java/lang/Class.getDeclaredMethods:()[Ljava/lang/reflect/Method;
+       245: invokestatic  #227                // Method net/sf/cglib/core/ReflectUtils.findMethods:([Ljava/lang/String;[Ljava/lang/reflect/Method;)[Ljava/lang/reflect/Method;
+       248: dup
+       249: iconst_0
+       250: aaload
+       251: putstatic     #47                 // Field CGLIB$test4$0$Method:Ljava/lang/reflect/Method;
+       254: aload_1
+       255: aload_0
+       256: ldc           #239                // String ()V
+       258: ldc           #238                // String test4
+       260: ldc           #249                // String CGLIB$test4$0
+       262: invokestatic  #234                // Method net/sf/cglib/proxy/MethodProxy.create:(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/sf/cglib/proxy/MethodProxy;
+       265: putstatic     #51                 // Field CGLIB$test4$0$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       268: dup
+       269: iconst_1
+       270: aaload
+       271: putstatic     #65                 // Field CGLIB$test2$1$Method:Ljava/lang/reflect/Method;
+       274: aload_1
+       275: aload_0
+       276: ldc           #239                // String ()V
+       278: ldc           #240                // String test2
+       280: ldc           #250                // String CGLIB$test2$1
+       282: invokestatic  #234                // Method net/sf/cglib/proxy/MethodProxy.create:(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/sf/cglib/proxy/MethodProxy;
+       285: putstatic     #67                 // Field CGLIB$test2$1$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       288: dup
+       289: iconst_2
+       290: aaload
+       291: putstatic     #76                 // Field CGLIB$setMyDao$2$Method:Ljava/lang/reflect/Method;
+       294: aload_1
+       295: aload_0
+       296: ldc           #242                // String (Lcom/jeremie/demo/MyDao;)V
+       298: ldc           #241                // String setMyDao
+       300: ldc           #251                // String CGLIB$setMyDao$2
+       302: invokestatic  #234                // Method net/sf/cglib/proxy/MethodProxy.create:(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/sf/cglib/proxy/MethodProxy;
+       305: putstatic     #80                 // Field CGLIB$setMyDao$2$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       308: dup
+       309: iconst_3
+       310: aaload
+       311: putstatic     #90                 // Field CGLIB$test3$3$Method:Ljava/lang/reflect/Method;
+       314: aload_1
+       315: aload_0
+       316: ldc           #239                // String ()V
+       318: ldc           #243                // String test3
+       320: ldc           #252                // String CGLIB$test3$3
+       322: invokestatic  #234                // Method net/sf/cglib/proxy/MethodProxy.create:(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/sf/cglib/proxy/MethodProxy;
+       325: putstatic     #92                 // Field CGLIB$test3$3$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       328: dup
+       329: iconst_4
+       330: aaload
+       331: putstatic     #101                // Field CGLIB$getMyDao$4$Method:Ljava/lang/reflect/Method;
+       334: aload_1
+       335: aload_0
+       336: ldc           #245                // String ()Lcom/jeremie/demo/MyDao;
+       338: ldc           #244                // String getMyDao
+       340: ldc           #253                // String CGLIB$getMyDao$4
+       342: invokestatic  #234                // Method net/sf/cglib/proxy/MethodProxy.create:(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/sf/cglib/proxy/MethodProxy;
+       345: putstatic     #103                // Field CGLIB$getMyDao$4$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       348: dup
+       349: iconst_5
+       350: aaload
+       351: putstatic     #111                // Field CGLIB$test1$5$Method:Ljava/lang/reflect/Method;
+       354: aload_1
+       355: aload_0
+       356: ldc           #239                // String ()V
+       358: ldc           #246                // String test1
+       360: ldc           #254                // String CGLIB$test1$5
+       362: invokestatic  #234                // Method net/sf/cglib/proxy/MethodProxy.create:(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/sf/cglib/proxy/MethodProxy;
+       365: putstatic     #113                // Field CGLIB$test1$5$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       368: pop
+       369: return
+       370: athrow
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 0
+          locals = []
+          stack = []
+        frame_type = 255 offset = 370
+          locals = []
+          stack = [ class java/lang/Throwable ]
+
+  final void CGLIB$test4$0() throws java.lang.Exception;
+    descriptor: ()V
+    flags: ACC_FINAL
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #39                 // Method com/jeremie/demo/MyService.test4:()V
+         4: return
+    Exceptions:
+      throws java.lang.Exception
+
+  public final void test4() throws java.lang.Exception;
+    descriptor: ()V
+    flags: ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=5, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+         4: dup
+         5: ifnonnull     17
+         8: pop
+         9: aload_0
+        10: invokestatic  #45                 // Method CGLIB$BIND_CALLBACKS:(Ljava/lang/Object;)V
+        13: aload_0
+        14: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+        17: dup
+        18: ifnull        37
+        21: aload_0
+        22: getstatic     #47                 // Field CGLIB$test4$0$Method:Ljava/lang/reflect/Method;
+        25: getstatic     #49                 // Field CGLIB$emptyArgs:[Ljava/lang/Object;
+        28: getstatic     #51                 // Field CGLIB$test4$0$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+        31: invokeinterface #57,  5           // InterfaceMethod net/sf/cglib/proxy/MethodInterceptor.intercept:(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;Lnet/sf/cglib/proxy/MethodProxy;)Ljava/lang/Object;
+        36: return
+        37: aload_0
+        38: invokespecial #39                 // Method com/jeremie/demo/MyService.test4:()V
+        41: return
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 17
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+        frame_type = 255 offset = 37
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+    Exceptions:
+      throws java.lang.Exception
+
+  final void CGLIB$test2$1() throws java.lang.Exception;
+    descriptor: ()V
+    flags: ACC_FINAL
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #63                 // Method com/jeremie/demo/MyService.test2:()V
+         4: return
+    Exceptions:
+      throws java.lang.Exception
+
+  public final void test2() throws java.lang.Exception;
+    descriptor: ()V
+    flags: ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=5, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+         4: dup
+         5: ifnonnull     17
+         8: pop
+         9: aload_0
+        10: invokestatic  #45                 // Method CGLIB$BIND_CALLBACKS:(Ljava/lang/Object;)V
+        13: aload_0
+        14: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+        17: dup
+        18: ifnull        37
+        21: aload_0
+        22: getstatic     #65                 // Field CGLIB$test2$1$Method:Ljava/lang/reflect/Method;
+        25: getstatic     #49                 // Field CGLIB$emptyArgs:[Ljava/lang/Object;
+        28: getstatic     #67                 // Field CGLIB$test2$1$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+        31: invokeinterface #57,  5           // InterfaceMethod net/sf/cglib/proxy/MethodInterceptor.intercept:(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;Lnet/sf/cglib/proxy/MethodProxy;)Ljava/lang/Object;
+        36: return
+        37: aload_0
+        38: invokespecial #63                 // Method com/jeremie/demo/MyService.test2:()V
+        41: return
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 17
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+        frame_type = 255 offset = 37
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+    Exceptions:
+      throws java.lang.Exception
+
+  final void CGLIB$setMyDao$2(com.jeremie.demo.MyDao);
+    descriptor: (Lcom/jeremie/demo/MyDao;)V
+    flags: ACC_FINAL
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: invokespecial #74                 // Method com/jeremie/demo/MyService.setMyDao:(Lcom/jeremie/demo/MyDao;)V
+         5: return
+
+  public final void setMyDao(com.jeremie.demo.MyDao);
+    descriptor: (Lcom/jeremie/demo/MyDao;)V
+    flags: ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=7, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+         4: dup
+         5: ifnonnull     17
+         8: pop
+         9: aload_0
+        10: invokestatic  #45                 // Method CGLIB$BIND_CALLBACKS:(Ljava/lang/Object;)V
+        13: aload_0
+        14: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+        17: dup
+        18: ifnull        42
+        21: aload_0
+        22: getstatic     #76                 // Field CGLIB$setMyDao$2$Method:Ljava/lang/reflect/Method;
+        25: iconst_1
+        26: anewarray     #78                 // class java/lang/Object
+        29: dup
+        30: iconst_0
+        31: aload_1
+        32: aastore
+        33: getstatic     #80                 // Field CGLIB$setMyDao$2$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+        36: invokeinterface #57,  5           // InterfaceMethod net/sf/cglib/proxy/MethodInterceptor.intercept:(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;Lnet/sf/cglib/proxy/MethodProxy;)Ljava/lang/Object;
+        41: return
+        42: aload_0
+        43: aload_1
+        44: invokespecial #74                 // Method com/jeremie/demo/MyService.setMyDao:(Lcom/jeremie/demo/MyDao;)V
+        47: return
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 17
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e, class com/jeremie/demo/MyDao ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+        frame_type = 255 offset = 42
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e, class com/jeremie/demo/MyDao ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+
+  final void CGLIB$test3$3();
+    descriptor: ()V
+    flags: ACC_FINAL
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #88                 // Method com/jeremie/demo/MyService.test3:()V
+         4: return
+
+  public final void test3();
+    descriptor: ()V
+    flags: ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=5, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+         4: dup
+         5: ifnonnull     17
+         8: pop
+         9: aload_0
+        10: invokestatic  #45                 // Method CGLIB$BIND_CALLBACKS:(Ljava/lang/Object;)V
+        13: aload_0
+        14: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+        17: dup
+        18: ifnull        37
+        21: aload_0
+        22: getstatic     #90                 // Field CGLIB$test3$3$Method:Ljava/lang/reflect/Method;
+        25: getstatic     #49                 // Field CGLIB$emptyArgs:[Ljava/lang/Object;
+        28: getstatic     #92                 // Field CGLIB$test3$3$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+        31: invokeinterface #57,  5           // InterfaceMethod net/sf/cglib/proxy/MethodInterceptor.intercept:(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;Lnet/sf/cglib/proxy/MethodProxy;)Ljava/lang/Object;
+        36: return
+        37: aload_0
+        38: invokespecial #88                 // Method com/jeremie/demo/MyService.test3:()V
+        41: return
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 17
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+        frame_type = 255 offset = 37
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+
+  final com.jeremie.demo.MyDao CGLIB$getMyDao$4();
+    descriptor: ()Lcom/jeremie/demo/MyDao;
+    flags: ACC_FINAL
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #99                 // Method com/jeremie/demo/MyService.getMyDao:()Lcom/jeremie/demo/MyDao;
+         4: areturn
+
+  public final com.jeremie.demo.MyDao getMyDao();
+    descriptor: ()Lcom/jeremie/demo/MyDao;
+    flags: ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=5, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+         4: dup
+         5: ifnonnull     17
+         8: pop
+         9: aload_0
+        10: invokestatic  #45                 // Method CGLIB$BIND_CALLBACKS:(Ljava/lang/Object;)V
+        13: aload_0
+        14: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+        17: dup
+        18: ifnull        40
+        21: aload_0
+        22: getstatic     #101                // Field CGLIB$getMyDao$4$Method:Ljava/lang/reflect/Method;
+        25: getstatic     #49                 // Field CGLIB$emptyArgs:[Ljava/lang/Object;
+        28: getstatic     #103                // Field CGLIB$getMyDao$4$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+        31: invokeinterface #57,  5           // InterfaceMethod net/sf/cglib/proxy/MethodInterceptor.intercept:(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;Lnet/sf/cglib/proxy/MethodProxy;)Ljava/lang/Object;
+        36: checkcast     #82                 // class com/jeremie/demo/MyDao
+        39: areturn
+        40: aload_0
+        41: invokespecial #99                 // Method com/jeremie/demo/MyService.getMyDao:()Lcom/jeremie/demo/MyDao;
+        44: areturn
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 17
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+        frame_type = 255 offset = 40
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+
+  final void CGLIB$test1$5() throws java.lang.Exception;
+    descriptor: ()V
+    flags: ACC_FINAL
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #109                // Method com/jeremie/demo/MyService.test1:()V
+         4: return
+    Exceptions:
+      throws java.lang.Exception
+
+  public final void test1() throws java.lang.Exception;
+    descriptor: ()V
+    flags: ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=5, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+         4: dup
+         5: ifnonnull     17
+         8: pop
+         9: aload_0
+        10: invokestatic  #45                 // Method CGLIB$BIND_CALLBACKS:(Ljava/lang/Object;)V
+        13: aload_0
+        14: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+        17: dup
+        18: ifnull        37
+        21: aload_0
+        22: getstatic     #111                // Field CGLIB$test1$5$Method:Ljava/lang/reflect/Method;
+        25: getstatic     #49                 // Field CGLIB$emptyArgs:[Ljava/lang/Object;
+        28: getstatic     #113                // Field CGLIB$test1$5$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+        31: invokeinterface #57,  5           // InterfaceMethod net/sf/cglib/proxy/MethodInterceptor.intercept:(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;Lnet/sf/cglib/proxy/MethodProxy;)Ljava/lang/Object;
+        36: return
+        37: aload_0
+        38: invokespecial #109                // Method com/jeremie/demo/MyService.test1:()V
+        41: return
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 17
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+        frame_type = 255 offset = 37
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+    Exceptions:
+      throws java.lang.Exception
+
+  final boolean CGLIB$equals$6(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+    flags: ACC_FINAL
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: invokespecial #120                // Method com/jeremie/demo/MyService.equals:(Ljava/lang/Object;)Z
+         5: ireturn
+
+  public final boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+    flags: ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=7, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+         4: dup
+         5: ifnonnull     17
+         8: pop
+         9: aload_0
+        10: invokestatic  #45                 // Method CGLIB$BIND_CALLBACKS:(Ljava/lang/Object;)V
+        13: aload_0
+        14: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+        17: dup
+        18: ifnull        57
+        21: aload_0
+        22: getstatic     #122                // Field CGLIB$equals$6$Method:Ljava/lang/reflect/Method;
+        25: iconst_1
+        26: anewarray     #78                 // class java/lang/Object
+        29: dup
+        30: iconst_0
+        31: aload_1
+        32: aastore
+        33: getstatic     #124                // Field CGLIB$equals$6$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+        36: invokeinterface #57,  5           // InterfaceMethod net/sf/cglib/proxy/MethodInterceptor.intercept:(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;Lnet/sf/cglib/proxy/MethodProxy;)Ljava/lang/Object;
+        41: dup
+        42: ifnonnull     50
+        45: pop
+        46: iconst_0
+        47: goto          56
+        50: checkcast     #126                // class java/lang/Boolean
+        53: invokevirtual #130                // Method java/lang/Boolean.booleanValue:()Z
+        56: ireturn
+        57: aload_0
+        58: aload_1
+        59: invokespecial #120                // Method com/jeremie/demo/MyService.equals:(Ljava/lang/Object;)Z
+        62: ireturn
+      StackMap: number_of_entries = 4
+        frame_type = 255 offset = 17
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e, class java/lang/Object ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+        frame_type = 255 offset = 50
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e, class java/lang/Object ]
+          stack = [ class java/lang/Object ]
+        frame_type = 255 offset = 56
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e, class java/lang/Object ]
+          stack = [ int ]
+        frame_type = 255 offset = 57
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e, class java/lang/Object ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+
+  final java.lang.String CGLIB$toString$7();
+    descriptor: ()Ljava/lang/String;
+    flags: ACC_FINAL
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #137                // Method com/jeremie/demo/MyService.toString:()Ljava/lang/String;
+         4: areturn
+
+  public final java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+    flags: ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=5, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+         4: dup
+         5: ifnonnull     17
+         8: pop
+         9: aload_0
+        10: invokestatic  #45                 // Method CGLIB$BIND_CALLBACKS:(Ljava/lang/Object;)V
+        13: aload_0
+        14: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+        17: dup
+        18: ifnull        40
+        21: aload_0
+        22: getstatic     #139                // Field CGLIB$toString$7$Method:Ljava/lang/reflect/Method;
+        25: getstatic     #49                 // Field CGLIB$emptyArgs:[Ljava/lang/Object;
+        28: getstatic     #141                // Field CGLIB$toString$7$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+        31: invokeinterface #57,  5           // InterfaceMethod net/sf/cglib/proxy/MethodInterceptor.intercept:(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;Lnet/sf/cglib/proxy/MethodProxy;)Ljava/lang/Object;
+        36: checkcast     #143                // class java/lang/String
+        39: areturn
+        40: aload_0
+        41: invokespecial #137                // Method com/jeremie/demo/MyService.toString:()Ljava/lang/String;
+        44: areturn
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 17
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+        frame_type = 255 offset = 40
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+
+  final int CGLIB$hashCode$8();
+    descriptor: ()I
+    flags: ACC_FINAL
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #150                // Method com/jeremie/demo/MyService.hashCode:()I
+         4: ireturn
+
+  public final int hashCode();
+    descriptor: ()I
+    flags: ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=5, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+         4: dup
+         5: ifnonnull     17
+         8: pop
+         9: aload_0
+        10: invokestatic  #45                 // Method CGLIB$BIND_CALLBACKS:(Ljava/lang/Object;)V
+        13: aload_0
+        14: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+        17: dup
+        18: ifnull        52
+        21: aload_0
+        22: getstatic     #152                // Field CGLIB$hashCode$8$Method:Ljava/lang/reflect/Method;
+        25: getstatic     #49                 // Field CGLIB$emptyArgs:[Ljava/lang/Object;
+        28: getstatic     #154                // Field CGLIB$hashCode$8$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+        31: invokeinterface #57,  5           // InterfaceMethod net/sf/cglib/proxy/MethodInterceptor.intercept:(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;Lnet/sf/cglib/proxy/MethodProxy;)Ljava/lang/Object;
+        36: dup
+        37: ifnonnull     45
+        40: pop
+        41: iconst_0
+        42: goto          51
+        45: checkcast     #156                // class java/lang/Number
+        48: invokevirtual #159                // Method java/lang/Number.intValue:()I
+        51: ireturn
+        52: aload_0
+        53: invokespecial #150                // Method com/jeremie/demo/MyService.hashCode:()I
+        56: ireturn
+      StackMap: number_of_entries = 4
+        frame_type = 255 offset = 17
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+        frame_type = 255 offset = 45
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+          stack = [ class java/lang/Object ]
+        frame_type = 255 offset = 51
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+          stack = [ int ]
+        frame_type = 255 offset = 52
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+
+  final java.lang.Object CGLIB$clone$9() throws java.lang.CloneNotSupportedException;
+    descriptor: ()Ljava/lang/Object;
+    flags: ACC_FINAL
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #168                // Method com/jeremie/demo/MyService.clone:()Ljava/lang/Object;
+         4: areturn
+    Exceptions:
+      throws java.lang.CloneNotSupportedException
+
+  protected final java.lang.Object clone() throws java.lang.CloneNotSupportedException;
+    descriptor: ()Ljava/lang/Object;
+    flags: ACC_PROTECTED, ACC_FINAL
+    Code:
+      stack=5, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+         4: dup
+         5: ifnonnull     17
+         8: pop
+         9: aload_0
+        10: invokestatic  #45                 // Method CGLIB$BIND_CALLBACKS:(Ljava/lang/Object;)V
+        13: aload_0
+        14: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+        17: dup
+        18: ifnull        37
+        21: aload_0
+        22: getstatic     #170                // Field CGLIB$clone$9$Method:Ljava/lang/reflect/Method;
+        25: getstatic     #49                 // Field CGLIB$emptyArgs:[Ljava/lang/Object;
+        28: getstatic     #172                // Field CGLIB$clone$9$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+        31: invokeinterface #57,  5           // InterfaceMethod net/sf/cglib/proxy/MethodInterceptor.intercept:(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;Lnet/sf/cglib/proxy/MethodProxy;)Ljava/lang/Object;
+        36: areturn
+        37: aload_0
+        38: invokespecial #168                // Method com/jeremie/demo/MyService.clone:()Ljava/lang/Object;
+        41: areturn
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 17
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+        frame_type = 255 offset = 37
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+    Exceptions:
+      throws java.lang.CloneNotSupportedException
+
+  public static net.sf.cglib.proxy.MethodProxy CGLIB$findMethodProxy(net.sf.cglib.core.Signature);
+    descriptor: (Lnet/sf/cglib/core/Signature;)Lnet/sf/cglib/proxy/MethodProxy;
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: invokevirtual #175                // Method java/lang/Object.toString:()Ljava/lang/String;
+         4: dup
+         5: invokevirtual #176                // Method java/lang/Object.hashCode:()I
+         8: lookupswitch  { // 10
+             -1704491740: 100
+             -1147892426: 112
+             -1147862635: 124
+             -1147832844: 136
+             -1147803053: 148
+              -777611644: 160
+              -508378822: 172
+              1826985398: 184
+              1913648695: 196
+              1984935277: 208
+                 default: 220
+            }
+       100: ldc           #178                // String setMyDao(Lcom/jeremie/demo/MyDao;)V
+       102: invokevirtual #179                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+       105: ifeq          221
+       108: getstatic     #80                 // Field CGLIB$setMyDao$2$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       111: areturn
+       112: ldc           #181                // String test1()V
+       114: invokevirtual #179                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+       117: ifeq          221
+       120: getstatic     #113                // Field CGLIB$test1$5$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       123: areturn
+       124: ldc           #183                // String test2()V
+       126: invokevirtual #179                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+       129: ifeq          221
+       132: getstatic     #67                 // Field CGLIB$test2$1$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       135: areturn
+       136: ldc           #185                // String test3()V
+       138: invokevirtual #179                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+       141: ifeq          221
+       144: getstatic     #92                 // Field CGLIB$test3$3$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       147: areturn
+       148: ldc           #187                // String test4()V
+       150: invokevirtual #179                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+       153: ifeq          221
+       156: getstatic     #51                 // Field CGLIB$test4$0$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       159: areturn
+       160: ldc           #189                // String getMyDao()Lcom/jeremie/demo/MyDao;
+       162: invokevirtual #179                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+       165: ifeq          221
+       168: getstatic     #103                // Field CGLIB$getMyDao$4$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       171: areturn
+       172: ldc           #191                // String clone()Ljava/lang/Object;
+       174: invokevirtual #179                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+       177: ifeq          221
+       180: getstatic     #172                // Field CGLIB$clone$9$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       183: areturn
+       184: ldc           #193                // String equals(Ljava/lang/Object;)Z
+       186: invokevirtual #179                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+       189: ifeq          221
+       192: getstatic     #124                // Field CGLIB$equals$6$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       195: areturn
+       196: ldc           #195                // String toString()Ljava/lang/String;
+       198: invokevirtual #179                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+       201: ifeq          221
+       204: getstatic     #141                // Field CGLIB$toString$7$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       207: areturn
+       208: ldc           #197                // String hashCode()I
+       210: invokevirtual #179                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+       213: ifeq          221
+       216: getstatic     #154                // Field CGLIB$hashCode$8$Proxy:Lnet/sf/cglib/proxy/MethodProxy;
+       219: areturn
+       220: pop
+       221: aconst_null
+       222: areturn
+      StackMap: number_of_entries = 12
+        frame_type = 255 offset = 100
+          locals = [ class net/sf/cglib/core/Signature ]
+          stack = [ class java/lang/String ]
+        frame_type = 255 offset = 112
+          locals = [ class net/sf/cglib/core/Signature ]
+          stack = [ class java/lang/String ]
+        frame_type = 255 offset = 124
+          locals = [ class net/sf/cglib/core/Signature ]
+          stack = [ class java/lang/String ]
+        frame_type = 255 offset = 136
+          locals = [ class net/sf/cglib/core/Signature ]
+          stack = [ class java/lang/String ]
+        frame_type = 255 offset = 148
+          locals = [ class net/sf/cglib/core/Signature ]
+          stack = [ class java/lang/String ]
+        frame_type = 255 offset = 160
+          locals = [ class net/sf/cglib/core/Signature ]
+          stack = [ class java/lang/String ]
+        frame_type = 255 offset = 172
+          locals = [ class net/sf/cglib/core/Signature ]
+          stack = [ class java/lang/String ]
+        frame_type = 255 offset = 184
+          locals = [ class net/sf/cglib/core/Signature ]
+          stack = [ class java/lang/String ]
+        frame_type = 255 offset = 196
+          locals = [ class net/sf/cglib/core/Signature ]
+          stack = [ class java/lang/String ]
+        frame_type = 255 offset = 208
+          locals = [ class net/sf/cglib/core/Signature ]
+          stack = [ class java/lang/String ]
+        frame_type = 255 offset = 220
+          locals = [ class net/sf/cglib/core/Signature ]
+          stack = [ class java/lang/String ]
+        frame_type = 255 offset = 221
+          locals = [ class net/sf/cglib/core/Signature ]
+          stack = []
+
+  public com.jeremie.demo.MyService$$EnhancerByCGLIB$$176198e();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: dup
+         2: invokespecial #255                // Method com/jeremie/demo/MyService."<init>":()V
+         5: invokestatic  #45                 // Method CGLIB$BIND_CALLBACKS:(Ljava/lang/Object;)V
+         8: return
+
+  public static void CGLIB$SET_THREAD_CALLBACKS(net.sf.cglib.proxy.Callback[]);
+    descriptor: ([Lnet/sf/cglib/proxy/Callback;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: getstatic     #27                 // Field CGLIB$THREAD_CALLBACKS:Ljava/lang/ThreadLocal;
+         3: aload_0
+         4: invokevirtual #260                // Method java/lang/ThreadLocal.set:(Ljava/lang/Object;)V
+         7: return
+
+  public static void CGLIB$SET_STATIC_CALLBACKS(net.sf.cglib.proxy.Callback[]);
+    descriptor: ([Lnet/sf/cglib/proxy/Callback;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: putstatic     #263                // Field CGLIB$STATIC_CALLBACKS:[Lnet/sf/cglib/proxy/Callback;
+         4: return
+
+  public java.lang.Object newInstance(net.sf.cglib.proxy.Callback[]);
+    descriptor: ([Lnet/sf/cglib/proxy/Callback;)Ljava/lang/Object;
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_1
+         1: invokestatic  #273                // Method CGLIB$SET_THREAD_CALLBACKS:([Lnet/sf/cglib/proxy/Callback;)V
+         4: new           #2                  // class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e
+         7: dup
+         8: invokespecial #274                // Method "<init>":()V
+        11: aconst_null
+        12: invokestatic  #273                // Method CGLIB$SET_THREAD_CALLBACKS:([Lnet/sf/cglib/proxy/Callback;)V
+        15: areturn
+
+  public java.lang.Object newInstance(net.sf.cglib.proxy.Callback);
+    descriptor: (Lnet/sf/cglib/proxy/Callback;)Ljava/lang/Object;
+    flags: ACC_PUBLIC
+    Code:
+      stack=4, locals=2, args_size=2
+         0: iconst_1
+         1: anewarray     #277                // class net/sf/cglib/proxy/Callback
+         4: dup
+         5: iconst_0
+         6: aload_1
+         7: aastore
+         8: invokestatic  #273                // Method CGLIB$SET_THREAD_CALLBACKS:([Lnet/sf/cglib/proxy/Callback;)V
+        11: new           #2                  // class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e
+        14: dup
+        15: invokespecial #274                // Method "<init>":()V
+        18: aconst_null
+        19: invokestatic  #273                // Method CGLIB$SET_THREAD_CALLBACKS:([Lnet/sf/cglib/proxy/Callback;)V
+        22: areturn
+
+  public java.lang.Object newInstance(java.lang.Class[], java.lang.Object[], net.sf.cglib.proxy.Callback[]);
+    descriptor: ([Ljava/lang/Class;[Ljava/lang/Object;[Lnet/sf/cglib/proxy/Callback;)Ljava/lang/Object;
+    flags: ACC_PUBLIC
+    Code:
+      stack=5, locals=4, args_size=4
+         0: aload_3
+         1: invokestatic  #273                // Method CGLIB$SET_THREAD_CALLBACKS:([Lnet/sf/cglib/proxy/Callback;)V
+         4: new           #2                  // class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e
+         7: dup
+         8: aload_1
+         9: dup
+        10: arraylength
+        11: tableswitch   { // 0 to 0
+                       0: 28
+                 default: 35
+            }
+        28: pop
+        29: invokespecial #274                // Method "<init>":()V
+        32: goto          50
+        35: goto          38
+        38: pop
+        39: new           #280                // class java/lang/IllegalArgumentException
+        42: dup
+        43: ldc_w         #282                // String Constructor not found
+        46: invokespecial #285                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+        49: athrow
+        50: aconst_null
+        51: invokestatic  #273                // Method CGLIB$SET_THREAD_CALLBACKS:([Lnet/sf/cglib/proxy/Callback;)V
+        54: areturn
+      StackMap: number_of_entries = 4
+        frame_type = 255 offset = 28
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e, class "[Ljava/lang/Class;", class "[Ljava/lang/Object;", class "[Lnet/sf/cglib/proxy/Callback;" ]
+          stack = [ uninitialized 4, uninitialized 4, class "[Ljava/lang/Class;" ]
+        frame_type = 255 offset = 35
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e, class "[Ljava/lang/Class;", class "[Ljava/lang/Object;", class "[Lnet/sf/cglib/proxy/Callback;" ]
+          stack = [ uninitialized 4, uninitialized 4, class "[Ljava/lang/Class;" ]
+        frame_type = 255 offset = 38
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e, class "[Ljava/lang/Class;", class "[Ljava/lang/Object;", class "[Lnet/sf/cglib/proxy/Callback;" ]
+          stack = [ uninitialized 4, uninitialized 4, class "[Ljava/lang/Class;" ]
+        frame_type = 255 offset = 50
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e, class "[Ljava/lang/Class;", class "[Ljava/lang/Object;", class "[Lnet/sf/cglib/proxy/Callback;" ]
+          stack = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+
+  public net.sf.cglib.proxy.Callback getCallback(int);
+    descriptor: (I)Lnet/sf/cglib/proxy/Callback;
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: invokestatic  #45                 // Method CGLIB$BIND_CALLBACKS:(Ljava/lang/Object;)V
+         4: aload_0
+         5: iload_1
+         6: tableswitch   { // 0 to 0
+                       0: 24
+                 default: 30
+            }
+        24: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+        27: goto          32
+        30: pop
+        31: aconst_null
+        32: areturn
+      StackMap: number_of_entries = 3
+        frame_type = 255 offset = 24
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e, int ]
+          stack = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+        frame_type = 255 offset = 30
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e, int ]
+          stack = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e ]
+        frame_type = 255 offset = 32
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e, int ]
+          stack = [ class net/sf/cglib/proxy/MethodInterceptor ]
+
+  public void setCallback(int, net.sf.cglib.proxy.Callback);
+    descriptor: (ILnet/sf/cglib/proxy/Callback;)V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=3, args_size=3
+         0: iload_1
+         1: tableswitch   { // 0 to 0
+                       0: 20
+                 default: 31
+            }
+        20: aload_0
+        21: aload_2
+        22: checkcast     #53                 // class net/sf/cglib/proxy/MethodInterceptor
+        25: putfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+        28: goto          31
+        31: return
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 20
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e, int, class net/sf/cglib/proxy/Callback ]
+          stack = []
+        frame_type = 255 offset = 31
+          locals = [ class com/jeremie/demo/MyService$$EnhancerByCGLIB$$176198e, int, class net/sf/cglib/proxy/Callback ]
+          stack = []
+
+  public net.sf.cglib.proxy.Callback[] getCallbacks();
+    descriptor: ()[Lnet/sf/cglib/proxy/Callback;
+    flags: ACC_PUBLIC
+    Code:
+      stack=5, locals=1, args_size=1
+         0: aload_0
+         1: invokestatic  #45                 // Method CGLIB$BIND_CALLBACKS:(Ljava/lang/Object;)V
+         4: aload_0
+         5: iconst_1
+         6: anewarray     #277                // class net/sf/cglib/proxy/Callback
+         9: dup
+        10: iconst_0
+        11: aload_0
+        12: getfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+        15: aastore
+        16: areturn
+
+  public void setCallbacks(net.sf.cglib.proxy.Callback[]);
+    descriptor: ([Lnet/sf/cglib/proxy/Callback;)V
+    flags: ACC_PUBLIC
+    Code:
+      stack=5, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: dup2
+         3: iconst_0
+         4: aaload
+         5: checkcast     #53                 // class net/sf/cglib/proxy/MethodInterceptor
+         8: putfield      #41                 // Field CGLIB$CALLBACK_0:Lnet/sf/cglib/proxy/MethodInterceptor;
+        11: return
+
+  static {};
+    descriptor: ()V
+    flags: ACC_STATIC
+    Code:
+      stack=0, locals=0, args_size=0
+         0: invokestatic  #298                // Method CGLIB$STATICHOOK1:()V
+         3: return
+}
+SourceFile: "<generated>"
