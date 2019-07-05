@@ -1,14 +1,17 @@
 package com.jeremie.spring;
 
+import net.sf.cglib.proxy.MethodProxy;
+
 import java.lang.reflect.Method;
 
 /**
+ *
  */
 public interface TransactionHandler {
 
-    void before(Method method);
+    void before(Object o, Method method, Object[] objects, MethodProxy methodProxy);
 
-    void after();
+    void after(Object o, Method method, Object[] objects, MethodProxy methodProxy);
 
-    void exception(Exception e) throws Exception;
+    void exception(Object o, Method method, Object[] objects, MethodProxy methodProxy, Exception e) throws Exception;
 }

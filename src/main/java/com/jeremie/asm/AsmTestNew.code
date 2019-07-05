@@ -1,0 +1,407 @@
+Classfile /Users/jeremie/programme/IdeaProjects/oschina/transaction-demo/target/classes/com/jeremie/asm/AsmTestNew.class
+  Last modified 2019-7-4; size 2184 bytes
+  MD5 checksum ba21aaa109ef4164ee3e5f21cb4a5df3
+  Compiled from "AsmTest.java"
+public class com.jeremie.asm.AsmTest
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+    #1 = Utf8               com/jeremie/asm/AsmTest
+    #2 = Class              #1            // com/jeremie/asm/AsmTest
+    #3 = Utf8               java/lang/Object
+    #4 = Class              #3            // java/lang/Object
+    #5 = Utf8               AsmTest.java
+    #6 = Utf8               name
+    #7 = Utf8               Ljava/lang/String;
+    #8 = Utf8               age
+    #9 = Utf8               I
+   #10 = Utf8               id
+   #11 = Utf8               <init>
+   #12 = Utf8               ()V
+   #13 = NameAndType        #11:#12       // "<init>":()V
+   #14 = Methodref          #4.#13        // java/lang/Object."<init>":()V
+   #15 = Utf8               jeremie
+   #16 = String             #15           // jeremie
+   #17 = NameAndType        #6:#7         // name:Ljava/lang/String;
+   #18 = Fieldref           #2.#17        // com/jeremie/asm/AsmTest.name:Ljava/lang/String;
+   #19 = NameAndType        #8:#9         // age:I
+   #20 = Fieldref           #2.#19        // com/jeremie/asm/AsmTest.age:I
+   #21 = Integer            2206710
+   #22 = NameAndType        #10:#9        // id:I
+   #23 = Fieldref           #2.#22        // com/jeremie/asm/AsmTest.id:I
+   #24 = Utf8               this
+   #25 = Utf8               Lcom/jeremie/asm/AsmTest;
+   #26 = Utf8               getName
+   #27 = Utf8               ()Ljava/lang/String;
+   #28 = Utf8               java/lang/System
+   #29 = Class              #28           // java/lang/System
+   #30 = Utf8               err
+   #31 = Utf8               Ljava/io/PrintStream;
+   #32 = NameAndType        #30:#31       // err:Ljava/io/PrintStream;
+   #33 = Fieldref           #29.#32       // java/lang/System.err:Ljava/io/PrintStream;
+   #34 = Utf8               java/lang/StringBuilder
+   #35 = Class              #34           // java/lang/StringBuilder
+   #36 = Methodref          #35.#13       // java/lang/StringBuilder."<init>":()V
+   #37 = Utf8               The method getName is start
+   #38 = String             #37           // The method getName is start
+   #39 = Utf8               append
+   #40 = Utf8               (Ljava/lang/String;)Ljava/lang/StringBuilder;
+   #41 = NameAndType        #39:#40       // append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+   #42 = Methodref          #35.#41       // java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+   #43 = Utf8               toString
+   #44 = NameAndType        #43:#27       // toString:()Ljava/lang/String;
+   #45 = Methodref          #35.#44       // java/lang/StringBuilder.toString:()Ljava/lang/String;
+   #46 = Utf8               java/io/PrintStream
+   #47 = Class              #46           // java/io/PrintStream
+   #48 = Utf8               println
+   #49 = Utf8               (Ljava/lang/String;)V
+   #50 = NameAndType        #48:#49       // println:(Ljava/lang/String;)V
+   #51 = Methodref          #47.#50       // java/io/PrintStream.println:(Ljava/lang/String;)V
+   #52 = Utf8               The method getName is end
+   #53 = String             #52           // The method getName is end
+   #54 = Utf8               getAge
+   #55 = Utf8               ()I
+   #56 = Utf8               The method getAge is start
+   #57 = String             #56           // The method getAge is start
+   #58 = Utf8               out
+   #59 = NameAndType        #58:#31       // out:Ljava/io/PrintStream;
+   #60 = Fieldref           #29.#59       // java/lang/System.out:Ljava/io/PrintStream;
+   #61 = Utf8               method getAge
+   #62 = String             #61           // method getAge
+   #63 = Utf8               The method getAge is end
+   #64 = String             #63           // The method getAge is end
+   #65 = Utf8               getId
+   #66 = Utf8               The method getId is start
+   #67 = String             #66           // The method getId is start
+   #68 = Utf8               The method getId is end
+   #69 = String             #68           // The method getId is end
+   #70 = Utf8               getAll
+   #71 = Utf8               The method getAll is start
+   #72 = String             #71           // The method getAll is start
+   #73 = Utf8               #
+   #74 = String             #73           // #
+   #75 = Utf8               (I)Ljava/lang/StringBuilder;
+   #76 = NameAndType        #39:#75       // append:(I)Ljava/lang/StringBuilder;
+   #77 = Methodref          #35.#76       // java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+   #78 = Utf8               The method getAll is end
+   #79 = String             #78           // The method getAll is end
+   #80 = Utf8               addAge
+   #81 = Utf8               The method addAge is start
+   #82 = String             #81           // The method addAge is start
+   #83 = Utf8               method addAge
+   #84 = String             #83           // method addAge
+   #85 = Utf8               testParam
+   #86 = Utf8               (III)Ljava/lang/String;
+   #87 = NameAndType        #85:#86       // testParam:(III)Ljava/lang/String;
+   #88 = Methodref          #2.#87        // com/jeremie/asm/AsmTest.testParam:(III)Ljava/lang/String;
+   #89 = NameAndType        #54:#55       // getAge:()I
+   #90 = Methodref          #2.#89        // com/jeremie/asm/AsmTest.getAge:()I
+   #91 = Utf8               The method addAge is end
+   #92 = String             #91           // The method addAge is end
+   #93 = Utf8               temp
+   #94 = Utf8               The method testParam is start
+   #95 = String             #94           // The method testParam is start
+   #96 = Utf8
+   #97 = String             #96           //
+   #98 = Utf8                testParam
+   #99 = String             #98           //  testParam
+  #100 = Utf8               The method testParam is end
+  #101 = String             #100          // The method testParam is end
+  #102 = Utf8               test
+  #103 = Utf8               test2
+  #104 = Utf8               test3
+  #105 = Utf8               Code
+  #106 = Utf8               LocalVariableTable
+  #107 = Utf8               LineNumberTable
+  #108 = Utf8               SourceFile
+{
+  public com.jeremie.asm.AsmTest();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: ldc           #16                 // String jeremie
+         7: putfield      #18                 // Field name:Ljava/lang/String;
+        10: aload_0
+        11: bipush        25
+        13: putfield      #20                 // Field age:I
+        16: aload_0
+        17: ldc           #21                 // int 2206710
+        19: putfield      #23                 // Field id:I
+        22: return
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      23     0  this   Lcom/jeremie/asm/AsmTest;
+      LineNumberTable:
+        line 6: 0
+        line 8: 4
+        line 9: 10
+        line 10: 16
+
+  public java.lang.String getName();
+    descriptor: ()Ljava/lang/String;
+    flags: ACC_PUBLIC
+    Code:
+      stack=4, locals=1, args_size=1
+         0: getstatic     #33                 // Field java/lang/System.err:Ljava/io/PrintStream;
+         3: new           #35                 // class java/lang/StringBuilder
+         6: dup
+         7: invokespecial #36                 // Method java/lang/StringBuilder."<init>":()V
+        10: ldc           #38                 // String The method getName is start
+        12: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        15: invokevirtual #45                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        18: invokevirtual #51                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        21: aload_0
+        22: getfield      #18                 // Field name:Ljava/lang/String;
+        25: getstatic     #33                 // Field java/lang/System.err:Ljava/io/PrintStream;
+        28: new           #35                 // class java/lang/StringBuilder
+        31: dup
+        32: invokespecial #36                 // Method java/lang/StringBuilder."<init>":()V
+        35: ldc           #53                 // String The method getName is end
+        37: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        40: invokevirtual #45                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        43: invokevirtual #51                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        46: areturn
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           21      26     0  this   Lcom/jeremie/asm/AsmTest;
+      LineNumberTable:
+        line 13: 21
+
+  public int getAge();
+    descriptor: ()I
+    flags: ACC_PUBLIC
+    Code:
+      stack=4, locals=1, args_size=1
+         0: getstatic     #33                 // Field java/lang/System.err:Ljava/io/PrintStream;
+         3: new           #35                 // class java/lang/StringBuilder
+         6: dup
+         7: invokespecial #36                 // Method java/lang/StringBuilder."<init>":()V
+        10: ldc           #57                 // String The method getAge is start
+        12: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        15: invokevirtual #45                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        18: invokevirtual #51                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        21: getstatic     #60                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        24: ldc           #62                 // String method getAge
+        26: invokevirtual #51                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        29: aload_0
+        30: getfield      #20                 // Field age:I
+        33: getstatic     #33                 // Field java/lang/System.err:Ljava/io/PrintStream;
+        36: new           #35                 // class java/lang/StringBuilder
+        39: dup
+        40: invokespecial #36                 // Method java/lang/StringBuilder."<init>":()V
+        43: ldc           #64                 // String The method getAge is end
+        45: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        48: invokevirtual #45                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        51: invokevirtual #51                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        54: ireturn
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           21      34     0  this   Lcom/jeremie/asm/AsmTest;
+      LineNumberTable:
+        line 17: 21
+        line 18: 29
+
+  public int getId();
+    descriptor: ()I
+    flags: ACC_PUBLIC
+    Code:
+      stack=4, locals=1, args_size=1
+         0: getstatic     #33                 // Field java/lang/System.err:Ljava/io/PrintStream;
+         3: new           #35                 // class java/lang/StringBuilder
+         6: dup
+         7: invokespecial #36                 // Method java/lang/StringBuilder."<init>":()V
+        10: ldc           #67                 // String The method getId is start
+        12: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        15: invokevirtual #45                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        18: invokevirtual #51                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        21: aload_0
+        22: getfield      #23                 // Field id:I
+        25: getstatic     #33                 // Field java/lang/System.err:Ljava/io/PrintStream;
+        28: new           #35                 // class java/lang/StringBuilder
+        31: dup
+        32: invokespecial #36                 // Method java/lang/StringBuilder."<init>":()V
+        35: ldc           #69                 // String The method getId is end
+        37: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        40: invokevirtual #45                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        43: invokevirtual #51                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        46: ireturn
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           21      26     0  this   Lcom/jeremie/asm/AsmTest;
+      LineNumberTable:
+        line 22: 21
+
+  public java.lang.String getAll();
+    descriptor: ()Ljava/lang/String;
+    flags: ACC_PUBLIC
+    Code:
+      stack=4, locals=1, args_size=1
+         0: getstatic     #33                 // Field java/lang/System.err:Ljava/io/PrintStream;
+         3: new           #35                 // class java/lang/StringBuilder
+         6: dup
+         7: invokespecial #36                 // Method java/lang/StringBuilder."<init>":()V
+        10: ldc           #72                 // String The method getAll is start
+        12: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        15: invokevirtual #45                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        18: invokevirtual #51                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        21: new           #35                 // class java/lang/StringBuilder
+        24: dup
+        25: invokespecial #36                 // Method java/lang/StringBuilder."<init>":()V
+        28: aload_0
+        29: getfield      #18                 // Field name:Ljava/lang/String;
+        32: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        35: ldc           #74                 // String #
+        37: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        40: aload_0
+        41: getfield      #20                 // Field age:I
+        44: invokevirtual #77                 // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+        47: ldc           #74                 // String #
+        49: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        52: aload_0
+        53: getfield      #23                 // Field id:I
+        56: invokevirtual #77                 // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+        59: invokevirtual #45                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        62: getstatic     #33                 // Field java/lang/System.err:Ljava/io/PrintStream;
+        65: new           #35                 // class java/lang/StringBuilder
+        68: dup
+        69: invokespecial #36                 // Method java/lang/StringBuilder."<init>":()V
+        72: ldc           #79                 // String The method getAll is end
+        74: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        77: invokevirtual #45                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        80: invokevirtual #51                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        83: areturn
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           21      63     0  this   Lcom/jeremie/asm/AsmTest;
+      LineNumberTable:
+        line 26: 21
+
+  public void addAge();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=4, locals=301, args_size=1
+         0: getstatic     #33                 // Field java/lang/System.err:Ljava/io/PrintStream;
+         3: new           #35                 // class java/lang/StringBuilder
+         6: dup
+         7: invokespecial #36                 // Method java/lang/StringBuilder."<init>":()V
+        10: ldc           #82                 // String The method addAge is start
+        12: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        15: invokevirtual #45                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        18: invokevirtual #51                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        21: getstatic     #60                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        24: ldc           #84                 // String method addAge
+        26: invokevirtual #51                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        29: aload_0
+        30: dup
+        31: getfield      #20                 // Field age:I
+        34: iconst_1
+        35: iadd
+        36: putfield      #20                 // Field age:I
+        39: aload_0
+        40: bipush        100
+        42: sipush        200
+        45: sipush        300
+        48: invokevirtual #88                 // Method testParam:(III)Ljava/lang/String;
+        51: astore_3
+        52: aload_0
+        53: dup
+        54: getfield      #20                 // Field age:I
+        57: iconst_1
+        58: iadd
+        59: putfield      #20                 // Field age:I
+        62: aload_0
+        63: invokevirtual #90                 // Method getAge:()I
+        66: pop
+        67: aload_0
+        68: bipush        100
+        70: sipush        -14140
+        73: sipush        300
+        76: invokevirtual #88                 // Method testParam:(III)Ljava/lang/String;
+        79: astore_1
+        80: getstatic     #60                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        83: aload_1
+        84: invokevirtual #51                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        87: getstatic     #33                 // Field java/lang/System.err:Ljava/io/PrintStream;
+        90: new           #35                 // class java/lang/StringBuilder
+        93: dup
+        94: invokespecial #36                 // Method java/lang/StringBuilder."<init>":()V
+        97: ldc           #92                 // String The method addAge is end
+        99: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       102: invokevirtual #45                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+       105: invokevirtual #51                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       108: return
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           21      88     0  this   Lcom/jeremie/asm/AsmTest;
+           52      57     3  temp   Ljava/lang/String;
+      LineNumberTable:
+        line 30: 21
+        line 31: 29
+        line 32: 39
+        line 34: 52
+
+  public java.lang.String testParam(int, int, int);
+    descriptor: (III)Ljava/lang/String;
+    flags: ACC_PUBLIC
+    Code:
+      stack=4, locals=4, args_size=4
+         0: getstatic     #33                 // Field java/lang/System.err:Ljava/io/PrintStream;
+         3: new           #35                 // class java/lang/StringBuilder
+         6: dup
+         7: invokespecial #36                 // Method java/lang/StringBuilder."<init>":()V
+        10: ldc           #95                 // String The method testParam is start
+        12: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        15: invokevirtual #45                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        18: invokevirtual #51                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        21: getstatic     #60                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        24: new           #35                 // class java/lang/StringBuilder
+        27: dup
+        28: invokespecial #36                 // Method java/lang/StringBuilder."<init>":()V
+        31: iload_1
+        32: invokevirtual #77                 // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+        35: ldc           #97                 // String
+        37: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        40: iload_2
+        41: invokevirtual #77                 // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+        44: ldc           #97                 // String
+        46: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        49: iload_3
+        50: invokevirtual #77                 // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+        53: ldc           #99                 // String  testParam
+        55: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        58: invokevirtual #45                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        61: invokevirtual #51                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        64: new           #35                 // class java/lang/StringBuilder
+        67: dup
+        68: invokespecial #36                 // Method java/lang/StringBuilder."<init>":()V
+        71: iload_1
+        72: invokevirtual #77                 // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+        75: ldc           #99                 // String  testParam
+        77: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        80: invokevirtual #45                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        83: getstatic     #33                 // Field java/lang/System.err:Ljava/io/PrintStream;
+        86: new           #35                 // class java/lang/StringBuilder
+        89: dup
+        90: invokespecial #36                 // Method java/lang/StringBuilder."<init>":()V
+        93: ldc           #101                // String The method testParam is end
+        95: invokevirtual #42                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        98: invokevirtual #45                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+       101: invokevirtual #51                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       104: areturn
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           21      84     0  this   Lcom/jeremie/asm/AsmTest;
+           21      84     1  test   I
+           21      84     2 test2   I
+           21      84     3 test3   I
+      LineNumberTable:
+        line 37: 21
+        line 38: 64
+}
+SourceFile: "AsmTest.java"

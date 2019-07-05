@@ -1,0 +1,267 @@
+Classfile /Users/jeremie/programme/IdeaProjects/oschina/transaction-demo/target/classes/com/jeremie/asm/SubAsmTest.class
+  Last modified 2019-7-5; size 1673 bytes
+  MD5 checksum 121cf935c289a0e0132701732c9f1fe5
+  Compiled from "SubAsmTest.java"
+public class com.jeremie.asm.SubAsmTest extends com.jeremie.asm.AsmTest
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #21.#48        // com/jeremie/asm/AsmTest."<init>":()V
+   #2 = Class              #49            // com/jeremie/asm/interceptor/MyMethodInterceptor
+   #3 = Methodref          #2.#48         // com/jeremie/asm/interceptor/MyMethodInterceptor."<init>":()V
+   #4 = Fieldref           #20.#50        // com/jeremie/asm/SubAsmTest.methodInterceptor:Lcom/jeremie/asm/interceptor/MethodInterceptor;
+   #5 = Methodref          #21.#51        // com/jeremie/asm/AsmTest.getName:()Ljava/lang/String;
+   #6 = Methodref          #21.#52        // com/jeremie/asm/AsmTest.getAge:()I
+   #7 = Methodref          #11.#53        // java/lang/Object.getClass:()Ljava/lang/Class;
+   #8 = String             #35            // getId
+   #9 = Class              #54            // java/lang/Class
+  #10 = Methodref          #9.#55         // java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+  #11 = Class              #56            // java/lang/Object
+  #12 = InterfaceMethodref #57.#58        // com/jeremie/asm/interceptor/MethodInterceptor.intercept:(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
+  #13 = Methodref          #21.#59        // com/jeremie/asm/AsmTest.getId:()I
+  #14 = Methodref          #21.#60        // com/jeremie/asm/AsmTest.getAll:()Ljava/lang/String;
+  #15 = Methodref          #21.#61        // com/jeremie/asm/AsmTest.addAge:()V
+  #16 = String             #40            // testParam
+  #17 = Fieldref           #62.#63        // java/lang/Integer.TYPE:Ljava/lang/Class;
+  #18 = Methodref          #62.#64        // java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+  #19 = Methodref          #21.#65        // com/jeremie/asm/AsmTest.testParam:(III)Ljava/lang/String;
+  #20 = Class              #66            // com/jeremie/asm/SubAsmTest
+  #21 = Class              #67            // com/jeremie/asm/AsmTest
+  #22 = Utf8               methodInterceptor
+  #23 = Utf8               Lcom/jeremie/asm/interceptor/MethodInterceptor;
+  #24 = Utf8               <init>
+  #25 = Utf8               ()V
+  #26 = Utf8               Code
+  #27 = Utf8               LineNumberTable
+  #28 = Utf8               LocalVariableTable
+  #29 = Utf8               this
+  #30 = Utf8               Lcom/jeremie/asm/SubAsmTest;
+  #31 = Utf8               getName
+  #32 = Utf8               ()Ljava/lang/String;
+  #33 = Utf8               getAge
+  #34 = Utf8               ()I
+  #35 = Utf8               getId
+  #36 = Utf8               Exceptions
+  #37 = Class              #68            // java/lang/Throwable
+  #38 = Utf8               getAll
+  #39 = Utf8               addAge
+  #40 = Utf8               testParam
+  #41 = Utf8               (III)Ljava/lang/String;
+  #42 = Utf8               test
+  #43 = Utf8               I
+  #44 = Utf8               test2
+  #45 = Utf8               test3
+  #46 = Utf8               SourceFile
+  #47 = Utf8               SubAsmTest.java
+  #48 = NameAndType        #24:#25        // "<init>":()V
+  #49 = Utf8               com/jeremie/asm/interceptor/MyMethodInterceptor
+  #50 = NameAndType        #22:#23        // methodInterceptor:Lcom/jeremie/asm/interceptor/MethodInterceptor;
+  #51 = NameAndType        #31:#32        // getName:()Ljava/lang/String;
+  #52 = NameAndType        #33:#34        // getAge:()I
+  #53 = NameAndType        #69:#70        // getClass:()Ljava/lang/Class;
+  #54 = Utf8               java/lang/Class
+  #55 = NameAndType        #71:#72        // getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+  #56 = Utf8               java/lang/Object
+  #57 = Class              #73            // com/jeremie/asm/interceptor/MethodInterceptor
+  #58 = NameAndType        #74:#75        // intercept:(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
+  #59 = NameAndType        #35:#34        // getId:()I
+  #60 = NameAndType        #38:#32        // getAll:()Ljava/lang/String;
+  #61 = NameAndType        #39:#25        // addAge:()V
+  #62 = Class              #76            // java/lang/Integer
+  #63 = NameAndType        #77:#78        // TYPE:Ljava/lang/Class;
+  #64 = NameAndType        #79:#80        // valueOf:(I)Ljava/lang/Integer;
+  #65 = NameAndType        #40:#41        // testParam:(III)Ljava/lang/String;
+  #66 = Utf8               com/jeremie/asm/SubAsmTest
+  #67 = Utf8               com/jeremie/asm/AsmTest
+  #68 = Utf8               java/lang/Throwable
+  #69 = Utf8               getClass
+  #70 = Utf8               ()Ljava/lang/Class;
+  #71 = Utf8               getMethod
+  #72 = Utf8               (Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+  #73 = Utf8               com/jeremie/asm/interceptor/MethodInterceptor
+  #74 = Utf8               intercept
+  #75 = Utf8               (Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
+  #76 = Utf8               java/lang/Integer
+  #77 = Utf8               TYPE
+  #78 = Utf8               Ljava/lang/Class;
+  #79 = Utf8               valueOf
+  #80 = Utf8               (I)Ljava/lang/Integer;
+{
+  public com.jeremie.asm.interceptor.MethodInterceptor methodInterceptor;
+    descriptor: Lcom/jeremie/asm/interceptor/MethodInterceptor;
+    flags: ACC_PUBLIC
+
+  public com.jeremie.asm.SubAsmTest();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method com/jeremie/asm/AsmTest."<init>":()V
+         4: aload_0
+         5: new           #2                  // class com/jeremie/asm/interceptor/MyMethodInterceptor
+         8: dup
+         9: invokespecial #3                  // Method com/jeremie/asm/interceptor/MyMethodInterceptor."<init>":()V
+        12: putfield      #4                  // Field methodInterceptor:Lcom/jeremie/asm/interceptor/MethodInterceptor;
+        15: return
+      LineNumberTable:
+        line 9: 0
+        line 11: 4
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      16     0  this   Lcom/jeremie/asm/SubAsmTest;
+
+  public java.lang.String getName();
+    descriptor: ()Ljava/lang/String;
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #5                  // Method com/jeremie/asm/AsmTest.getName:()Ljava/lang/String;
+         4: areturn
+      LineNumberTable:
+        line 15: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/jeremie/asm/SubAsmTest;
+
+  public int getAge();
+    descriptor: ()I
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #6                  // Method com/jeremie/asm/AsmTest.getAge:()I
+         4: ireturn
+      LineNumberTable:
+        line 20: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/jeremie/asm/SubAsmTest;
+
+  public int getId() throws java.lang.Throwable;
+    descriptor: ()I
+    flags: ACC_PUBLIC
+    Code:
+      stack=5, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #4                  // Field methodInterceptor:Lcom/jeremie/asm/interceptor/MethodInterceptor;
+         4: aload_0
+         5: aload_0
+         6: invokevirtual #7                  // Method java/lang/Object.getClass:()Ljava/lang/Class;
+         9: ldc           #8                  // String getId
+        11: iconst_0
+        12: anewarray     #9                  // class java/lang/Class
+        15: invokevirtual #10                 // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+        18: iconst_0
+        19: anewarray     #11                 // class java/lang/Object
+        22: invokeinterface #12,  4           // InterfaceMethod com/jeremie/asm/interceptor/MethodInterceptor.intercept:(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
+        27: pop
+        28: aload_0
+        29: invokespecial #13                 // Method com/jeremie/asm/AsmTest.getId:()I
+        32: ireturn
+      LineNumberTable:
+        line 25: 0
+        line 26: 28
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      33     0  this   Lcom/jeremie/asm/SubAsmTest;
+    Exceptions:
+      throws java.lang.Throwable
+
+  public java.lang.String getAll();
+    descriptor: ()Ljava/lang/String;
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #14                 // Method com/jeremie/asm/AsmTest.getAll:()Ljava/lang/String;
+         4: areturn
+      LineNumberTable:
+        line 31: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/jeremie/asm/SubAsmTest;
+
+  public void addAge() throws java.lang.Throwable;
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #15                 // Method com/jeremie/asm/AsmTest.addAge:()V
+         4: return
+      LineNumberTable:
+        line 36: 0
+        line 37: 4
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/jeremie/asm/SubAsmTest;
+    Exceptions:
+      throws java.lang.Throwable
+
+  public java.lang.String testParam(int, int, int) throws java.lang.Throwable;
+    descriptor: (III)Ljava/lang/String;
+    flags: ACC_PUBLIC
+    Code:
+      stack=8, locals=4, args_size=4
+         0: aload_0
+         1: getfield      #4                  // Field methodInterceptor:Lcom/jeremie/asm/interceptor/MethodInterceptor;
+         4: aload_0
+         5: aload_0
+         6: invokevirtual #7                  // Method java/lang/Object.getClass:()Ljava/lang/Class;
+         9: ldc           #16                 // String testParam
+        11: iconst_3
+        12: anewarray     #9                  // class java/lang/Class
+        15: dup
+        16: iconst_0
+        17: getstatic     #17                 // Field java/lang/Integer.TYPE:Ljava/lang/Class;
+        20: aastore
+        21: dup
+        22: iconst_1
+        23: getstatic     #17                 // Field java/lang/Integer.TYPE:Ljava/lang/Class;
+        26: aastore
+        27: dup
+        28: iconst_2
+        29: getstatic     #17                 // Field java/lang/Integer.TYPE:Ljava/lang/Class;
+        32: aastore
+        33: invokevirtual #10                 // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+        36: iconst_3
+        37: anewarray     #11                 // class java/lang/Object
+        40: dup
+        41: iconst_0
+        42: iload_1
+        43: invokestatic  #18                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        46: aastore
+        47: dup
+        48: iconst_1
+        49: iload_2
+        50: invokestatic  #18                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        53: aastore
+        54: dup
+        55: iconst_2
+        56: iload_3
+        57: invokestatic  #18                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        60: aastore
+        61: invokeinterface #12,  4           // InterfaceMethod com/jeremie/asm/interceptor/MethodInterceptor.intercept:(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
+        66: pop
+        67: aload_0
+        68: iload_1
+        69: iload_2
+        70: iload_3
+        71: invokespecial #19                 // Method com/jeremie/asm/AsmTest.testParam:(III)Ljava/lang/String;
+        74: areturn
+      LineNumberTable:
+        line 41: 0
+        line 43: 67
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      75     0  this   Lcom/jeremie/asm/SubAsmTest;
+            0      75     1  test   I
+            0      75     2 test2   I
+            0      75     3 test3   I
+    Exceptions:
+      throws java.lang.Throwable
+}
+SourceFile: "SubAsmTest.java"

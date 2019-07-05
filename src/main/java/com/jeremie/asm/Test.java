@@ -14,7 +14,7 @@ public class Test {
 
     private final static String CLAZZ_NAME = "com.jeremie.asm.AsmTest";
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Throwable {
         AsmTest asmTest = new AsmTest();
         System.out.println(asmTest.getId());
         System.out.println(asmTest.getName());
@@ -84,11 +84,13 @@ public class Test {
             //startTimeId = newLocal(Type.LONG_TYPE);
             //mv.visitMethodInsn(INVOKESTATIC, "java/lang/System", "currentTimeMillis", "()J", false);
             //mv.visitIntInsn(LSTORE, startTimeId);
+        }
 
+        @Override
+        protected void onMethodEnter() {
             //方法开始前往字节码中插入一段输出方法开始的代码
             addMethodFlag("start");
         }
-
 
         @Override
         protected void onMethodExit(int opcode) {

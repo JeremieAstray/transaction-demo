@@ -135,12 +135,13 @@ public class ApplicationContext {
      * @throws ClassNotDeclearException ClassNotDeclearException
      */
     private static void IOC(List<Class> clazzList) throws IllegalAccessException, InstantiationException, ClassNotDeclearException {
+        //实例化bean
         for (Class clazz : clazzList) {
             //判断类是否需要注入
             if (!canIOC(clazz)) {
                 continue;
             }
-            //初始化对象
+            //实例化bean
             Object instance = clazz.newInstance();
             beanContainer.put(clazz.getName(), instance);
             //处理代理对象
@@ -148,7 +149,7 @@ public class ApplicationContext {
                 Transaction transaction = (Transaction) clazz.getAnnotation(Transaction.class);
                 //事务的代理类
                 MethodInterceptor methodInterceptor = (MethodInterceptor) transaction.transactionDynamicClass().newInstance();
-                //创建代理类
+                //创建并实例化代理类
                 dynamicBeanContainer.put(clazz.getName(), Enhancer.create(instance.getClass(), methodInterceptor));
             }
         }
@@ -163,7 +164,7 @@ public class ApplicationContext {
      *
      * @param container container
      */
-    private static void dealIOC(Map<String, Object> container) throws IllegalAccessException, InstantiationException, ClassNotDeclearException {
+    private static void dealIOC(Map<String, Object> container) throws IllegalAccessException, ClassNotDeclearException {
         //处理注入
         for (Map.Entry<String, Object> entry : container.entrySet()) {
             Object o = entry.getValue();

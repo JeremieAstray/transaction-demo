@@ -11,14 +11,14 @@ import java.lang.reflect.Method;
 public abstract class TransactionDynamicHandler implements TransactionHandler, MethodInterceptor {
 
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-        this.before(method);
+        this.before(o, method, objects, methodProxy);
         Object result;
         try {
             result = methodProxy.invokeSuper(o, objects);
-            this.after();
+            this.after(o, method, objects, methodProxy);
             return result;
         } catch (Exception e) {
-            this.exception(e);
+            this.exception(o, method, objects, methodProxy, e);
             throw e;
         }
     }

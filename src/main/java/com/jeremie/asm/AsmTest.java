@@ -18,7 +18,7 @@ public class AsmTest {
         return age;
     }
 
-    public int getId() {
+    public int getId() throws Throwable {
         return id;
     }
 
@@ -26,14 +26,14 @@ public class AsmTest {
         return name + "#" + age + "#" + id;
     }
 
-    public void addAge() {
+    public void addAge() throws Throwable {
         System.out.println("method addAge");
         age++;
         String temp = testParam(100, 200, 300);
         //System.out.println(temp);
     }
 
-    public String testParam(int test, int test2, int test3) {
+    public String testParam(int test, int test2, int test3) throws Throwable {
         System.out.println(test + " " + test2 + " " + test3 + " testParam");
         return test + " testParam";
     }
