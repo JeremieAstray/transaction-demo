@@ -1,13 +1,15 @@
 package com.jeremie.asm;
 
 import com.jeremie.asm.interceptor.MyMethodInterceptor;
-import org.objectweb.asm.*;
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.FieldVisitor;
+import org.objectweb.asm.MethodVisitor;
+import org.objectweb.asm.Opcodes;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.lang.reflect.Method;
 
-import static org.objectweb.asm.ClassReader.EXPAND_FRAMES;
 import static org.objectweb.asm.Opcodes.*;
 
 /**
@@ -44,26 +46,36 @@ public class Test2 {
         mw.visitMaxs(1, 1);
         mw.visitEnd();
 
-        //方法拦截器
         FieldVisitor fv = classWriter.visitField(ACC_PUBLIC, "methodInterceptor"
-                , "com/jeremie/asm/interceptor/MethodInterceptor", null, null);
+                , "Lcom/jeremie/asm/interceptor/MethodInterceptor;", null, null);
         fv.visitEnd();
 
-        //构造函数
-        MethodVisitor mw2 = classWriter.visitMethod(ACC_PUBLIC, "getId", "()V", null, null);
+        //方法
+        MethodVisitor mw2 = classWriter.visitMethod(ACC_PUBLIC, "getId", "()I", null, null);
         mw2.visitVarInsn(ALOAD, 0);
-        mw2.visitFieldInsn(GETFIELD,NEW_CLAZZ_NAME_PATH,"methodInterceptor","Lcom/jeremie/asm/interceptor/MethodInterceptor;");
+        mw2.visitFieldInsn(GETFIELD, NEW_CLAZZ_NAME_PATH, "methodInterceptor", "Lcom/jeremie/asm/interceptor/MethodInterceptor;");
         mw2.visitVarInsn(ALOAD, 0);
         mw2.visitVarInsn(ALOAD, 0);
-        mw2.visitMethodInsn(INVOKESPECIAL, "java/lang/Object", "getClass", "()Ljava/lang/Class;", false);
+        mw2.visitMethodInsn(INVOKEVIRTUAL, "java/lang/Object", "getClass", "()Ljava/lang/Class;", false);
         mw2.visitLdcInsn("getId");
+        mw2.visitInsn(ICONST_0);
+        mw2.visitTypeInsn(Opcodes.ANEWARRAY, "java/lang/Class");
+        mw2.visitMethodInsn(INVOKEVIRTUAL, "java/lang/Class", "getMethod", "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", false);
+        mw2.visitInsn(ICONST_0);
+        mw2.visitTypeInsn(Opcodes.ANEWARRAY, "java/lang/Class");
+        mw2.visitMethodInsn(INVOKEINTERFACE, "com/jeremie/asm/interceptor/MethodInterceptor", "intercept", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", true);
+        mw2.visitTypeInsn(CHECKCAST, "java/lang/Integer");
+        mw2.visitMethodInsn(INVOKEVIRTUAL, "java/lang/Integer", "intValue", "()I", false);
+        mw2.visitInsn(IRETURN);
+        mw2.visitMaxs(5, 1);
+        mw2.visitEnd();
 
         //mw2.visitMethodInsn(INVOKESPECIAL, CLAZZ_NAME_PATH, "getId", "()V", false);
 
 
-        mw2.visitInsn(RETURN);
-        mw2.visitMaxs(1, 1);
-        mw2.visitEnd();
+        //mw2.visitInsn(RETURN);
+        //mw2.visitMaxs(1, 1);
+        //mw2.visitEnd();
 
         //字节码访问器
         //ClassVisitor change = new ChangeVisitor(classWriter);
@@ -92,20 +104,20 @@ public class Test2 {
         //实例化类
         Object personObj = clazz.getConstructor().newInstance();
 
-        clazz.getField("methodInterceptor").set(new MyMethodInterceptor(), personObj);
+        clazz.getDeclaredField("methodInterceptor").set(personObj, new MyMethodInterceptor());
 
         System.out.println("init Success!");
         System.out.println();
 
-        //反射调用生成类的addAge方法
-        Method nameMethod = clazz.getDeclaredMethod("addAge", null);
+        //反射调用生成类的getId方法
+        Method nameMethod = clazz.getDeclaredMethod("getId", null);
         nameMethod.invoke(personObj, null);
         System.out.println();
-
+/*
         //反射调用生成类的getAge方法
         Method getMethod = clazz.getDeclaredMethod("getAge", null);
         Object result = getMethod.invoke(personObj, null);
-        System.out.println(result);
+        System.out.println(result);*/
     }
 
     /*static class ChangeVisitor extends ClassVisitor {

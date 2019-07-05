@@ -22,8 +22,8 @@ public class SubAsmTest extends AsmTest {
 
     @Override
     public int getId() throws Throwable {
-        methodInterceptor.intercept(this, this.getClass().getMethod("getId"), new Object[]{});
-        return super.getId();
+
+        return (int) methodInterceptor.intercept(this, super.getClass().getMethod("getId"), new Object[]{});
     }
 
     @Override
