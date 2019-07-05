@@ -11,7 +11,7 @@ public class MyMethodInterceptor implements MethodInterceptor {
         System.out.println(method.getName() + " start");
         Object result;
         try {
-            result = o.getClass().getSuperclass().getMethod(method.getName()).invoke(o, objects);
+            result = method.invoke(o, objects);
             System.out.println(method.getName() + " end");
             return result;
         } catch (Exception e) {

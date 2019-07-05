@@ -19,6 +19,7 @@ public class AsmTest {
     }
 
     public int getId() throws Throwable {
+        System.out.println("getId");
         return id;
     }
 

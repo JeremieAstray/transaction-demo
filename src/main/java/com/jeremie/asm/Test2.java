@@ -49,13 +49,16 @@ public class Test2 {
         FieldVisitor fv = classWriter.visitField(ACC_PUBLIC, "methodInterceptor"
                 , "Lcom/jeremie/asm/interceptor/MethodInterceptor;", null, null);
         fv.visitEnd();
-
+        classWriter.visitField(ACC_PUBLIC, "asmTest"
+                , "L" + CLAZZ_NAME_PATH + ";", null, null).visitEnd();
         //方法
         MethodVisitor mw2 = classWriter.visitMethod(ACC_PUBLIC, "getId", "()I", null, null);
         mw2.visitVarInsn(ALOAD, 0);
         mw2.visitFieldInsn(GETFIELD, NEW_CLAZZ_NAME_PATH, "methodInterceptor", "Lcom/jeremie/asm/interceptor/MethodInterceptor;");
         mw2.visitVarInsn(ALOAD, 0);
+        mw2.visitFieldInsn(GETFIELD, NEW_CLAZZ_NAME_PATH, "asmTest", "Lcom/jeremie/asm/AsmTest;");
         mw2.visitVarInsn(ALOAD, 0);
+        mw2.visitFieldInsn(GETFIELD, NEW_CLAZZ_NAME_PATH, "asmTest", "Lcom/jeremie/asm/AsmTest;");
         mw2.visitMethodInsn(INVOKEVIRTUAL, "java/lang/Object", "getClass", "()Ljava/lang/Class;", false);
         mw2.visitLdcInsn("getId");
         mw2.visitInsn(ICONST_0);
@@ -105,13 +108,14 @@ public class Test2 {
         Object personObj = clazz.getConstructor().newInstance();
 
         clazz.getDeclaredField("methodInterceptor").set(personObj, new MyMethodInterceptor());
+        clazz.getDeclaredField("asmTest").set(personObj, new AsmTest());
 
         System.out.println("init Success!");
         System.out.println();
 
         //反射调用生成类的getId方法
         Method nameMethod = clazz.getDeclaredMethod("getId", null);
-        nameMethod.invoke(personObj, null);
+        nameMethod.invoke(personObj);
         System.out.println();
 /*
         //反射调用生成类的getAge方法

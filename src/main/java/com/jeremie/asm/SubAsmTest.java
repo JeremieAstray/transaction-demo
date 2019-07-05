@@ -6,40 +6,36 @@ import com.jeremie.asm.interceptor.MyMethodInterceptor;
 /**
  * @author guanhong 2019-07-04.
  */
-public class SubAsmTest extends AsmTest {
+public class SubAsmTest {
+
+    private AsmTest asmTest = new AsmTest();
 
     public MethodInterceptor methodInterceptor = new MyMethodInterceptor();
 
-    @Override
     public String getName() {
-        return super.getName();
+        return asmTest.getName();
     }
 
-    @Override
     public int getAge() {
-        return super.getAge();
+        return asmTest.getAge();
     }
 
-    @Override
     public int getId() throws Throwable {
 
-        return (int) methodInterceptor.intercept(this, super.getClass().getMethod("getId"), new Object[]{});
+        return (int) methodInterceptor.intercept(asmTest, asmTest.getClass().getMethod("getId"), new Object[]{});
     }
 
-    @Override
     public String getAll() {
-        return super.getAll();
+        return asmTest.getAll();
     }
 
-    @Override
     public void addAge() throws Throwable {
-        super.addAge();
+        asmTest.addAge();
     }
 
-    @Override
     public String testParam(int test, int test2, int test3) throws Throwable {
-        methodInterceptor.intercept(this, this.getClass().getMethod("testParam", Integer.TYPE, Integer.TYPE, Integer.TYPE), new Object[]{test, test2, test3});
+        methodInterceptor.intercept(asmTest, asmTest.getClass().getMethod("testParam", Integer.TYPE, Integer.TYPE, Integer.TYPE), new Object[]{test, test2, test3});
 
-        return super.testParam(test, test2, test3);
+        return asmTest.testParam(test, test2, test3);
     }
 }
