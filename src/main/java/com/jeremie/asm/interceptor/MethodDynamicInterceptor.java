@@ -5,17 +5,17 @@ import java.lang.reflect.Method;
 /**
  * @author guanhong 2019-07-04.
  */
-public class MyMethodInterceptor implements MethodInterceptor {
+public abstract class MethodDynamicInterceptor implements MethodInterceptor, TransactionHandler {
 
     public Object intercept(Object o, Method method, Object[] objects) throws Throwable {
-        System.out.println(method.getName() + " start");
         Object result;
+        this.before(o, method, objects);
         try {
             result = method.invoke(o, objects);
-            System.out.println(method.getName() + " end");
+            this.after(o, method, objects);
             return result;
         } catch (Exception e) {
-            System.out.println(method.getName() + " exception");
+            this.exception(o, method, objects, e);
             throw e;
         }
     }

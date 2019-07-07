@@ -1,6 +1,7 @@
 package com.jeremie.asm;
 
-import com.jeremie.asm.interceptor.MyMethodInterceptor;
+import com.jeremie.asm.interceptor.AOPMethodDynamicHandler;
+import com.jeremie.asm.interceptor.MethodDynamicInterceptor;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.FieldVisitor;
 import org.objectweb.asm.MethodVisitor;
@@ -107,7 +108,7 @@ public class Test2 {
         //实例化类
         Object personObj = clazz.getConstructor().newInstance();
 
-        clazz.getDeclaredField("methodInterceptor").set(personObj, new MyMethodInterceptor());
+        clazz.getDeclaredField("methodInterceptor").set(personObj, new AOPMethodDynamicHandler());
         clazz.getDeclaredField("asmTest").set(personObj, new AsmTest());
 
         System.out.println("init Success!");

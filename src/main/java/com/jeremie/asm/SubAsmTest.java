@@ -1,7 +1,8 @@
 package com.jeremie.asm;
 
+import com.jeremie.asm.interceptor.AOPMethodDynamicHandler;
 import com.jeremie.asm.interceptor.MethodInterceptor;
-import com.jeremie.asm.interceptor.MyMethodInterceptor;
+import com.jeremie.asm.interceptor.MethodDynamicInterceptor;
 
 /**
  * @author guanhong 2019-07-04.
@@ -10,7 +11,7 @@ public class SubAsmTest {
 
     private AsmTest asmTest = new AsmTest();
 
-    public MethodInterceptor methodInterceptor = new MyMethodInterceptor();
+    public AOPMethodDynamicHandler methodInterceptor = new AOPMethodDynamicHandler();
 
     public String getName() {
         return asmTest.getName();
