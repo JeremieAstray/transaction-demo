@@ -1,13 +1,13 @@
 package com.jeremie.demo;
 
 import com.jeremie.bean.factory.annotation.Autowried;
-import com.jeremie.bean.factory.annotation.Transaction;
+import com.jeremie.stereotype.InOutLog;
 import com.jeremie.stereotype.Service;
 
 /**
  */
 @Service
-@Transaction
+@InOutLog
 public class MyService {
 
     @Autowried

@@ -1,8 +1,8 @@
 package com.jeremie.spring;
 
 import com.jeremie.bean.factory.annotation.Autowried;
+import com.jeremie.stereotype.InOutLog;
 import com.jeremie.bean.factory.annotation.Resource;
-import com.jeremie.bean.factory.annotation.Transaction;
 import com.jeremie.connection.Connection;
 import com.jeremie.connection.MyPool;
 import com.jeremie.exception.ClassNotDeclearException;
@@ -145,10 +145,17 @@ public class ApplicationContext {
             Object instance = clazz.newInstance();
             beanContainer.put(clazz.getName(), instance);
             //处理代理对象
-            if (clazz.isAnnotationPresent(Transaction.class)) {
+            /*if (clazz.isAnnotationPresent(Transaction.class)) {
                 Transaction transaction = (Transaction) clazz.getAnnotation(Transaction.class);
                 //事务的代理类
                 MethodInterceptor methodInterceptor = (MethodInterceptor) transaction.transactionDynamicClass().newInstance();
+                //创建并实例化代理类
+                dynamicBeanContainer.put(clazz.getName(), Enhancer.create(instance.getClass(), methodInterceptor));
+            }*/
+            //处理代理对象
+            if (clazz.isAnnotationPresent(InOutLog.class)) {
+                //事务的代理类
+                MethodInterceptor methodInterceptor = new InOutLogInterceptor();
                 //创建并实例化代理类
                 dynamicBeanContainer.put(clazz.getName(), Enhancer.create(instance.getClass(), methodInterceptor));
             }

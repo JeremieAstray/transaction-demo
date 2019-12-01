@@ -13,11 +13,14 @@ public class Test {
     public static void main(String[] args) throws Exception {
         ApplicationContext.setScanPackages("com.jeremie.demo");
         ApplicationContext.init();
-        ExecutorService executorService = Executors.newFixedThreadPool(40);
+        /*ExecutorService executorService = Executors.newFixedThreadPool(40);
         for (int i = 0; i < 80; i++) {
             executorService.execute(new FooThread());
         }
-        executorService.shutdown();
+        executorService.shutdown();*/
+        MyService myService = (MyService) ApplicationContext.getBean("com.jeremie.demo.MyService");
+        myService.test1();
+        myService.test2();
     }
 
 
@@ -33,14 +36,6 @@ public class Test {
                 e.printStackTrace();
             }
         }
-    }
-
-    public <T> T test(Class<T> tClass) {
-        String object = "123";
-        if(object.getClass().isAssignableFrom(tClass)){
-            return (T) object;
-        }
-        return null;
     }
 
 }
