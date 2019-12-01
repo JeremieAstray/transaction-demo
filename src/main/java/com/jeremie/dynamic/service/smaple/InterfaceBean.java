@@ -1,4 +1,4 @@
-package com.jeremie.dynamic.bean;
+package com.jeremie.dynamic.service.smaple;
 
 /**
  * @author guanhong 2019/4/19.
